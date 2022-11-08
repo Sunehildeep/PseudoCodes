@@ -102,9 +102,9 @@ nav.effect ul li a:hover:after {
     justify-content: space-around;
     margin-left: 22%;
     margin-top: 15%;
-
 }
 
+/* Active Surveys Section */
 .active-surveys {
     text-align: center;
     position: absolute;
@@ -127,7 +127,6 @@ th:last-child { border-top-right-radius: 30px; }
 tr:last-child td:first-child { border-bottom-left-radius: 30px; }
 tr:last-child td:last-child { border-bottom-right-radius: 30px; }
 
-
 .active-surveys th {
     background: #AAAAAA;
     padding: 1rem 1rem 1rem 1rem;
@@ -142,11 +141,12 @@ tr:last-child td:last-child { border-bottom-right-radius: 30px; }
     width: 1%;
     white-space: nowrap;
 }
+
 /* Footer Section */
 #copyright-year {
     position: absolute;
     bottom: 0;
     right: 0;
-    padding-right: 1.5%;
-    padding-bottom: 1.5%;
+    padding-right: 1%;
+    padding-bottom: 1%;
 }
