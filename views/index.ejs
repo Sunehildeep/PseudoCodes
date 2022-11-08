@@ -1,11 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to PseudoCodes// testing</p>
-  </body>
-</html>
+<%- include('partials/header'); %>
+
+<%- include('partials/nav'); %>
+
+<main>
+
+    <div class="home-content">
+       <img src="/assets/images/video game console.png" width="380">
+       <li><a href="#" class="nav-item nav-item-btn">Create Survey</a></li>
+    </div>
+    <div>
+      <h3>Create a survey in 3 simple steps:</h3>
+      <ol>
+          <li>Login</li>
+          <li>Create Survey</li>
+          <li>View Final Results</li>
+      </ol>
+   </div>
+</main>
+
+
+<%- include('partials/footer'); %>
+
+<%- include('partials/bottom'); %>

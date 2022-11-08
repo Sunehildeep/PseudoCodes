@@ -1,10 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: green;
+    background: url("/assets/images/background.jpg") no-repeat fixed center;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
 }
 
-a {
-  color: green;
+/* NavBar Section */
+.logo-name {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    margin-left: -100px;
 }
 
+.project-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
+    font-weight: 100;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 111;
+    padding: 4px 120px;
+    box-shadow: rgba(33,35,38,0.3) 0px 5px 5px -5px;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    text-align: center;
+    width: 60%;
+    justify-self: end;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.nav-item-btn {
+    background-color: #A8E890;
+    padding: 6px 16px;
+}
+
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+
+nav.effect ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.effect ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #A8E890;
+  height: 2px;
+}
+nav.effect ul li a:hover:after {
+  width: 100%;
+}
+
+/* Home Section */
+.home-content {
+   text-align: center;
+   margin-top: 280px;
+   margin-left: -600px;
+}
+
+/* Footer Section */
+#copyright-year {
+    position: absolute;
+    bottom: 0;
+    margin-left: auto; 
+    margin-right: 0;
+}
