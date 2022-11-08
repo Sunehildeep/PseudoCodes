@@ -164,12 +164,12 @@ tr:last-child td:last-child {
   border-radius: 40px;
 }
 
-label {
+.loginLabel {
   display: block;
   font-size: 1.3rem;
 }
 
-input {
+.loginInput {
   display: flex;
   justify-content: center;
   align-items: center;
