@@ -90,6 +90,14 @@ nav.effect ul li a:hover:after {
     text-align: center;
 }
 
+.list-item-home{
+    font-size: 25px;
+    padding-left: 5%;
+}
+
+.home-content-2{
+
+}
 
 .home-container {
     width: 50%;
@@ -106,4 +114,6 @@ nav.effect ul li a:hover:after {
     position: absolute;
     bottom: 0;
     right: 0;
+    padding-right: 1.5%;
+    padding-bottom: 1.5%;
 }
