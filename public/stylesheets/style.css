@@ -22,7 +22,7 @@ body {
 
 .project-name {
   font-family: "Dancing Script", cursive;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 100;
 }
 
@@ -197,6 +197,6 @@ input {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding-right: 1%;
+  padding-right: 0.8%;
   padding-bottom: 1%;
 }
