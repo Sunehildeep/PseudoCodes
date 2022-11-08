@@ -92,6 +92,43 @@ nav.effect ul li a:hover:after {
    margin-left: -600px;
 }
 
+.active-surveys {
+    text-align: center;
+    position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%,-50%);
+    font-size: 1.5rem;
+    font-weight: 100;
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.active-surveys a {
+    color: white;
+}
+
+th:first-child { border-top-left-radius: 30px; }
+th:last-child { border-top-right-radius: 30px; }
+
+tr:last-child td:first-child { border-bottom-left-radius: 30px; }
+tr:last-child td:last-child { border-bottom-right-radius: 30px; }
+
+
+.active-surveys th {
+    background: #AAAAAA;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.active-surveys td {
+    padding: 1rem 0;
+    background: #C7C7C7;
+}
+
+.active-surveys th tr td:last-child {
+    width: 1%;
+    white-space: nowrap;
+}
 /* Footer Section */
 #copyright-year {
     position: absolute;
