@@ -19,14 +19,14 @@
         <tbody>
         <% for(let count = 0; count < surveyList.length; count++) { %>
             <tr>
-                <td><% surveyList[count].author %></td>
-                <td><% surveyList[count].surveyName %></td>
-                <td><% surveyList[count].startDate %></td>
-                <td><% surveyList[count].closeDate %></td>
-                <td><a class="survey-button" href="/survey/<%= surveyList[count]._id%>">View</a></td>
+                <td><%= surveyList[count].author %></td>
+                <td><%= surveyList[count].surveyName %></td>
+                <td><%= surveyList[count].startDate %></td>
+                <td><%= surveyList[count].closeDate %></td>
+                <td><a class="survey-button" href="<%= surveyList[count]._id %>">View</a></td>
                 <td>
-                    <button class="survey-button"><i class="fa-solid fa-pencil"></i></button>
-                    <button class="survey-button"><i class="fa-solid fa-trash"></i></button>
+                    <a class="survey-button" href="edit/<%= surveyList[count]._id %>"><button class="survey-button"><i class="fa-solid fa-pencil"></i></button></a>
+                    <a class="survey-button" href="delete/<%= surveyList[count]._id %>"><button class="survey-button"><i class="fa-solid fa-trash"></i></button></a>
                 </td>
             </tr>
         <% } %>
