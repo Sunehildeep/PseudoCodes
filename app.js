@@ -4,13 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('../routes');
-var usersRouter = require('../routes/users');
-var surveyRouter = require('../routes/survey');
+var indexRouter = require('./routes');
+var usersRouter = require('./routes/users');
+var surveyRouter = require('./routes/survey');
 
 // database setup
 const mongoose = require('mongoose');
-const DB = require('./db');
+const DB = require('./config/db');
 
 // point mongoose to the DB URI
 mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -24,15 +24,15 @@ mongoDB.once('open', ()=>{
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, '../../views'));
+app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../public')));
-app.use(express.static(path.join(__dirname, '../../node_modules')));
+app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './node_modules')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
