@@ -17,3 +17,7 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
         }
     });
 }
+
+module.exports.displayCreateSurveyPage = (req, res, next) => {
+    res.render("survey/create-survey", { title: "Create a Survey" });
+}

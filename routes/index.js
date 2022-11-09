@@ -11,9 +11,6 @@ router.get("/home", indexController.displayHomePage);
 /* GET about page. */
 router.get("/about", indexController.displayAboutPage);
 
-/* GET create survey page. */
-router.get("/create-survey", indexController.displayCreateSurveyPage);
-
 /* GET login page. */
 router.get("/login", indexController.displayLoginPage);
 
