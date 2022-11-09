@@ -9,10 +9,6 @@ module.exports.displayAboutPage = (req, res, next) => {
     res.render("about", { title: "About" });
 }
 
-module.exports.displayActiveSurveysPage = (req, res, next) => {
-    res.render("active-surveys", { title: "Active Surveys" });
-}
-
 module.exports.displayLoginPage = (req, res, next) => {
     res.render("login", { title: "Login" });
 }

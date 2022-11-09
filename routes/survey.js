@@ -1,22 +1,8 @@
 let express = require('express');
 let router = express.Router();
-let mongoose = require('mongoose');
+let surveyController = require('../controllers/survey');
 
-// connect to our Survey Model
-let Survey = require('../models/survey');
-
-// GET Route for the Survey List page - READ OPeration 
-router.get('/', (req, res, next) => {
-    Survey.find((err, surveyList) => {
-        if(err)
-        {
-            return console.error(err);
-        }
-        else
-        {
-            res.render('survey', {title: 'Survey List', SurveyList: surveyList})            
-        }
-    });
-});
+// GET Route for the Survey List page - READ OPERATION
+router.get("/active-surveys", surveyController.displayActiveSurveysPage);
 
 module.exports = router;
