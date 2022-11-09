@@ -26,5 +26,5 @@ module.exports.processLoginPage = (req, res, next) => {
 }
 
 module.exports.displayCreateSurveyPage = (req, res, next) => {
-    res.render("create-survey", { title: "Create a Survey" });
+    res.render("survey/create-survey", { title: "Create a Survey" });
 }
