@@ -3,7 +3,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 // connect to our Survey Model
-let Survey = require('../public/models/survey');
+let Survey = require('../models/survey');
 
 // GET Route for the Survey List page - READ OPeration 
 router.get('/', (req, res, next) => {
