@@ -14,6 +14,11 @@ router.get("/about", indexController.displayAboutPage);
 /* GET active surveys page. */
 router.get("/active-surveys", indexController.displayActiveSurveysPage);
 
+/* GET create survey page. */
+router.get("/create-survey", function (req, res, next) {
+  res.render("create-survey", { title: "Create a Survey" });
+});
+
 /* GET login page. */
 router.get("/login", indexController.displayLoginPage);
 

@@ -3,15 +3,28 @@
 <%- include('partials/nav'); %>
 
 <!-- Create Survey Section -->
-<thead>
-    <tr>
-        <th>#</th>
-        <th>Author</th>
-        <th>Survey Name</th>
-        <th>Closing Date</th>
-        <th>Responses</th>
-    </tr>
-</thead>
+<main>
+    <table class="active-surveys">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Author</th>
+                <th>Survey Name</th>
+                <th>Closing Date</th>
+                <th>Responses</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#1</td>
+                <td>Just a placeholder</td>
+                <td>Survey 1 Description</td>
+                <td>12/12/2023</td>
+                <td><a href="/survey/1">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
 
 <%- include('partials/footer'); %>
 
