@@ -4,9 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('../../routes/index');
-var usersRouter = require('../../routes/users');
-var surveyRouter = require('../../routes/survey');
+var indexRouter = require('../routes');
+var usersRouter = require('../routes/users');
+var surveyRouter = require('../routes/survey');
 
 // database setup
 const mongoose = require('mongoose');

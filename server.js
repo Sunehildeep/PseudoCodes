@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
- var app = require('./public/config/app');
+ var app = require('./config/app');
  var debug = require('debug')('pseudocodes:server');
  var http = require('http');
  
