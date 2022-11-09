@@ -15,19 +15,23 @@
                 <th><button class="survey-button"><i class="fa-solid fa-plus"></i> Add</button></th>
             </tr>
         </thead>
+
         <tbody>
+        <% for(let count = 0; count < surveyList.length; count++) { %>
             <tr>
-                <td>Just a placeholder</td>
-                <td>Survey 1 Description</td>
-                <td>12/12/2022</td>
-                <td>12/12/2023</td>
-                <td><a class="survey-button" href="/survey/1">View</a></td>
+                <td><% surveyList[count].author %></td>
+                <td><% surveyList[count].surveyName %></td>
+                <td><% surveyList[count].startDate %></td>
+                <td><% surveyList[count].closeDate %></td>
+                <td><a class="survey-button" href="/survey/<%= surveyList[count]._id%>">View</a></td>
                 <td>
                     <button class="survey-button"><i class="fa-solid fa-pencil"></i></button>
                     <button class="survey-button"><i class="fa-solid fa-trash"></i></button>
                 </td>
             </tr>
+        <% } %>
         </tbody>
+
     </table>
 </main>
 

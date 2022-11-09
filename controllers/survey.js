@@ -13,7 +13,7 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
         }
         else
         {
-            res.render("survey/active-surveys", { title: "Active Surveys" });
+            res.render("survey/active-surveys", { title: "Active Surveys", surveyList: surveyList});
         }
     });
 }
