@@ -15,9 +15,7 @@ router.get("/about", indexController.displayAboutPage);
 router.get("/active-surveys", indexController.displayActiveSurveysPage);
 
 /* GET create survey page. */
-router.get("/create-survey", function (req, res, next) {
-  res.render("create-survey", { title: "Create a Survey" });
-});
+router.get("/create-survey", indexController.displayCreateSurveyPage);
 
 /* GET login page. */
 router.get("/login", indexController.displayLoginPage);

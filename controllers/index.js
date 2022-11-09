@@ -24,3 +24,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
 module.exports.processLoginPage = (req, res, next) => {
     res.redirect("/home");
 }
+
+module.exports.displayCreateSurveyPage = (req, res, next) => {
+    res.render("create-survey", { title: "Create a Survey" });
+}
