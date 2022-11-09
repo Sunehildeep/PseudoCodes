@@ -21,6 +21,11 @@ router.get("/active-surveys", function (req, res, next) {
   res.render("active-surveys", { title: "Active Surveys" });
 });
 
+/* GET create survey page. */
+router.get("/create-survey", function (req, res, next) {
+  res.render("create-survey", { title: "Create a Survey" });
+});
+
 /* GET login page. */
 router.get("/login", function (req, res, next) {
   res.render("login", { title: "Login" });
