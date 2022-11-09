@@ -90,6 +90,11 @@ nav.effect ul li a:hover:after {
   text-align: center;
 }
 
+.home-content-2 {
+    margin-top: 7%;
+    margin-left: 10%;
+}
+
 .list-item-home {
   font-size: 25px;
   padding-left: 5%;
@@ -100,9 +105,25 @@ nav.effect ul li a:hover:after {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-left: 22%;
+  margin-left: 25%;
   margin-top: 15%;
 }
+
+.console-img {
+    animation: drop 1.5s ease;
+}
+
+@keyframes drop{
+    0%{
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
 
 /* Active Surveys Section */
 .active-surveys {
