@@ -228,14 +228,14 @@ tr:last-child {
 }
 
 /* register section */
-.container {
+.containerReg {
   text-align: center;
   position: absolute;
   top: 60%;
   right: 50%;
   transform: translate(50%, -50%);
   width: 400px;
-  height: 520px;
+  height: 600px;
   background: #c7c7c7;
   border-radius: 40px;
 }
