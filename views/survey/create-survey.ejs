@@ -1,33 +1,58 @@
-<%- include('../partials/header'); %>
-
-<%- include('../partials/nav'); %>
+<%- include('../partials/header'); %> <%- include('../partials/nav'); %>
 
 <!-- Create Survey Section -->
 <main>
-    <div class="create-survey">
-        <h3 class="survey-titles">
-            Create a new survey
-        </h3>
-        <div class="survey-options">
-            <label class="survey-titles" for="name">NAME:</label>
-            <input id="name" class="surveyInput" type="text">
+  <div class="create-survey">
+    <h3 class="survey-title">Create a new survey</h3>
+    <div class="survey-options">
+      <label class="survey-titles" for="name" style="left: 10rem">NAME:</label>
+      <input
+        name="name"
+        id="name"
+        class="surveyInput"
+        type="text"
+        style="top: 3.5rem; left: -2.2rem"
+      />
 
-            <label class="survey-titles" for="surveyname">SURVEY NAME:</label>
-            <input id="surveyname" class="surveyInput" type="text"  />
+      <label class="survey-titles" for="surveyname" style="left: 5rem"
+        >SURVEY NAME:</label
+      >
+      <input
+        id="surveyname"
+        class="surveyInput"
+        type="text"
+        style="top: 3.5rem; left: -7.7rem"
+      />
 
-            <label class="survey-titles" for="startdate">START DATE:</label>
-            <input id="startdate" class="surveyInput" type="text"  />
+      <label
+        class="survey-titles"
+        for="startdate"
+        style="left: 10rem; top: 4.5rem"
+        >START DATE:</label
+      >
+      <input
+        id="startdate"
+        class="surveyInput"
+        type="text"
+        style="top: 7.5rem; left: -2.2rem"
+      />
 
-            <label class="survey-titles" for="closingdate">CLOSING DATE:</label>
-            <input id="closingdate" class="surveyInput" type="text"  />
-
-            <a href="/" class="nav-item nav-item-btn" >LOGIN</a></li>
-
-        </div>
+      <label class="survey-titles" for="closingdate" style="left: 5rem; top: 4.5rem"">CLOSING DATE:</label>
+      <input id="closingdate" class="surveyInput" type="text" style="top: 7.5rem; left:  -7.7rem"/>
     </div>
+
+    <h3 style="font-size: 2rem; position: relative; top: 11rem;">Questions</h3>
+    <div class="survey-questions">
+      <input type="text" name="question1" placeholder="Question 1">
+      <input type="text" name="question2" placeholder="Question 2">
+      <input type="text" name="question3" placeholder="Question 3">
+      <input type="text" name="question4" placeholder="Question 4">
+      <input type="text" name="question5" placeholder="Question 5">
+    </div>
+      <a href="/" class="submit">Submit</a>
+
+  </div>
+
 </main>
 
-
-<%- include('../partials/footer'); %>
-
-<%- include('../partials/bottom'); %>
+<%- include('../partials/footer'); %> <%- include('../partials/bottom'); %>
