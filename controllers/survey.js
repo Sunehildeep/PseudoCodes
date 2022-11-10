@@ -39,7 +39,7 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
     author: req.body.author,
     surveyName: req.body.surveyName,
     startDate: req.body.startDate,
-    closeDate: req.body.closeDate,
+    closeDate: req.body.closingDate,
   });
 
   Survey.create(newSurvey, (err, Survey) => {
