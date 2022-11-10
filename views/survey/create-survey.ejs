@@ -2,23 +2,24 @@
 
 <!-- Create Survey Section -->
 <main>
+    <form  method="post"> 
+
   <div class="create-survey">
     <h3 class="survey-title">Create a new survey</h3>
     <div class="survey-options">
-      <label class="survey-titles" for="name" style="left: 5rem">NAME:</label>
+      <label class="survey-titles" for="author" style="left: 5rem">NAME:</label>
       <input
-        name="name"
-        id="name"
+        name="author"
         class="surveyInput"
         type="text"
         style="top: 3.5rem; left: -6.2rem"
       />
 
-      <label class="survey-titles" for="surveyname" style="left: -2rem"
+      <label class="survey-titles" for="surveyName" style="left: -2rem"
         >SURVEY NAME:</label
       >
       <input
-        id="surveyname"
+        name="surveyName"
         class="surveyInput"
         type="text"
         style="top: 3.5rem; left: -14.5rem"
@@ -26,19 +27,19 @@
 
       <label
         class="survey-titles"
-        for="startdate"
+        for="startDate"
         style="left: 5.5rem; top: 4.5rem"
         >START DATE:</label
       >
       <input
-        id="startdate"
+        name="startDate"
         class="surveyInput"
         type="text"
         style="top: 7.5rem; left: -6.2rem"
       />
 
-      <label class="survey-titles" for="closingdate" style="left: -1.8rem; top: 4.5rem"">CLOSING DATE:</label>
-      <input id="closingdate" class="surveyInput" type="text" style="top: 7.5rem; left:  -14.5rem"/>
+      <label class="survey-titles" for="closingDate" style="left: -1.8rem; top: 4.5rem"">CLOSING DATE:</label>
+      <input name="closingDate" class="surveyInput" type="text" style="top: 7.5rem; left:  -14.5rem"/>
     </div>
 
     <h3 style="font-size: 1.7rem; position: relative; top: 11rem;">Questions</h3>
@@ -49,11 +50,11 @@
       <input type="text" name="question4" placeholder="Question 4">
       <input type="text" name="question5" placeholder="Question 5">
     </div>
-      <a href="/" class="submit">Submit</a>
-      <a href="/" class="cancel">Cancel</a>
+      <button class="submit" type="submit">Submit</button>
+      <button class="cancel">Cancel</button>
 
   </div>
-
+</form>
 </main>
 
 <%- include('../partials/footer'); %> <%- include('../partials/bottom'); %>

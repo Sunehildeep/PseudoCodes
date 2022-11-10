@@ -279,6 +279,7 @@ tr:last-child {
   bottom: -14.7rem;
   border: 0;
   border-radius: 4px;
+  cursor: pointer;
 }
 .cancel {
   background-color: #a8e890;
@@ -291,6 +292,7 @@ tr:last-child {
   bottom: -14.7rem;
   border: 0;
   border-radius: 4px;
+  cursor: pointer;
 }
 /* Login Section */
 .container {
