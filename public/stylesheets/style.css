@@ -206,7 +206,7 @@ tr:last-child {
   right: 50%;
   transform: translate(50%, -50%);
   width: 30%;
-  height: 80%;
+  height: 75%;
   background: #c7c7c7;
   border-radius: 40px;
 }
@@ -276,7 +276,7 @@ tr:last-child {
   margin: auto;
   margin-right: 2rem;
   position: relative;
-  bottom: -16rem;
+  bottom: -14.7rem;
   border: 0;
   border-radius: 4px;
 }
@@ -288,7 +288,7 @@ tr:last-child {
   padding: 10px 15px;
   margin: auto;
   position: relative;
-  bottom: -16rem;
+  bottom: -14.7rem;
   border: 0;
   border-radius: 4px;
 }
