@@ -333,7 +333,7 @@ tr:last-child {
   top: 4rem;
 }
 
-/* register section */
+/* Register Section */
 .containerReg {
   text-align: center;
   position: absolute;
@@ -371,7 +371,7 @@ tr:last-child {
 
 /* Footer Section */
 #copyright-year {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   padding-right: 0.8%;
