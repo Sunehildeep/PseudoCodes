@@ -22,8 +22,10 @@ body {
 
 .project-name {
   font-family: "Dancing Script", cursive;
+  color: white;
   font-size: 2rem;
   font-weight: 100;
+  text-decoration: none;
 }
 
 #menu-icon {
@@ -190,6 +192,7 @@ tr:last-child {
   background-color: #a8e890;
   color: white;
   text-decoration: none;
+  cursor: pointer;
   font-size: 1.5rem;
   padding: 10px 15px;
   margin: auto;
