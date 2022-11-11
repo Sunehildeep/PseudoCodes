@@ -1,10 +1,72 @@
-<%- include('partials/header'); %>
-
-<%- include('partials/nav'); %>
+<%- include('../partials/header'); %>
+<%- include('../partials/nav'); %>
 
 <!-- Edit Survey Section -->
+<main>
+    <form  method="post">
+
+        <div class="create-survey">
+            <h3 class="survey-title">Edit a survey</h3>
+            <div class="survey-options">
+                <label class="survey-titles" for="author" style="left: 5rem">NAME:</label>
+                <input
+                        name="author"
+                        class="surveyInput"
+                        type="text"
+                        style="top: 3.5rem; left: -6.2rem"
+                        value="<%= survey.author %>"
+                />
 
 
-<%- include('partials/footer'); %>
+                <label class="survey-titles" for="surveyName" style="left: -2rem"
+                >SURVEY NAME:</label
+                >
+                <input
+                        name="surveyName"
+                        class="surveyInput"
+                        type="text"
+                        style="top: 3.5rem; left: -14.5rem"
+                        value="<%= survey.surveyName %>"
+                />
 
-<%- include('partials/bottom'); %>
+                <label
+                        class="survey-titles"
+                        for="startDate"
+                        style="left: 5.5rem; top: 4.5rem"
+                >START DATE:</label
+                >
+                <input
+                        name="startDate"
+                        class="surveyInput"
+                        type="text"
+                        style="top: 7.5rem; left: -6.2rem"
+                        value="<%= survey.startDate %>"
+                />
+
+                <label class="survey-titles" for="closingDate" style="left: -1.8rem; top: 4.5rem">CLOSING DATE:</label>
+                <input
+                        name="closingDate"
+                        class="surveyInput"
+                        type="text"
+                        style="top: 7.5rem; left:  -14.5rem"
+                        value="<%= survey.closeDate %>"
+                />
+            </div>
+
+            <h3 style="font-size: 1.7rem; position: relative; top: 11rem;">Questions</h3>
+            <div class="survey-questions">
+                <input type="text" name="question1" placeholder="Question 1">
+                <input type="text" name="question2" placeholder="Question 2">
+                <input type="text" name="question3" placeholder="Question 3">
+                <input type="text" name="question4" placeholder="Question 4">
+                <input type="text" name="question5" placeholder="Question 5">
+            </div>
+            <button class="submit" type="submit">Submit</button>
+            <a href="/surveys/active-surveys" class="cancel">Cancel</a>
+
+        </div>
+    </form>
+</main>
+
+<%- include('../partials/footer'); %>
+<%- include('../partials/bottom'); %>
