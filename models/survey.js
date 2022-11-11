@@ -5,6 +5,7 @@ let surveyModel = mongoose.Schema({
     surveyName: String,
     startDate: String,
     closeDate: String,
+    questions: Array,
 },
 {
     collection: "survey-list"

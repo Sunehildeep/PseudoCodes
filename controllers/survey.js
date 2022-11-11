@@ -41,6 +41,7 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
     surveyName: req.body.surveyName,
     startDate: req.body.startDate,
     closeDate: req.body.closingDate,
+    questions: req.body.questions,
   });
 
   Survey.create(newSurvey, (err, Survey) => {
@@ -77,6 +78,7 @@ module.exports.processEditSurveyPage = (req, res, next) =>{
     surveyName: req.body.surveyName,
     startDate: req.body.startDate,
     closeDate: req.body.closingDate,
+    questions: req.body.questions,
   });
 
   Survey.updateOne({_id: id}, editedSurvey,(err)=>{
