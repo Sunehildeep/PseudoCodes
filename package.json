@@ -1,9 +1,13 @@
 {
-  "name": "pseudocodes",
-  "version": "0.0.0",
+  "name": "comp229-group6",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node config/server.js"
+  },
+  "engines": {
+    "node": "^16.17.0",
+    "npm": "^8.15.0"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -13,5 +17,18 @@
     "http-errors": "~1.6.3",
     "mongoose": "^6.7.2",
     "morgan": "~1.9.1"
-  }
+  },
+  "description": "Surveylance ",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sunehildeep/PseudoCodes.git"
+  },
+  "author": "Group6",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sunehildeep/PseudoCodes/issues"
+  },
+  "homepage": "https://github.com/Sunehildeep/PseudoCodes#readme"
 }
