@@ -55,6 +55,16 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+// passport user configuration
+
+// create a User Model Instance
+let userModel = require('./models/user');
+let User = userModel.User; 
+
+// serialize and deserialize the User info
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/surveys', surveyRouter);
