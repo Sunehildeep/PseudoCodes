@@ -4,9 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var indexRouter = require('./routes');
-var usersRouter = require('./routes/users');
-var surveyRouter = require('./routes/survey');
+// modules for authentication
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
 
 // database setup
 const mongoose = require('mongoose');
@@ -21,6 +24,10 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
+var indexRouter = require('./routes');
+var usersRouter = require('./routes/users');
+var surveyRouter = require('./routes/survey');
+
 var app = express();
 
 // view engine setup
@@ -33,6 +40,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, './public')));
 app.use(express.static(path.join(__dirname, './node_modules')));
+
+// setup express session
+app.use(session({
+  secret: "Secret",
+  saveUninitialized: false,
+  resave: false
+}));
+
+// initialize flash
+app.use(flash());
+
+// initialize passport 
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
