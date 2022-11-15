@@ -33,6 +33,7 @@ module.exports.displayLoginPage = (req, res, next) => {
 module.exports.processLoginPage = (req, res, next) => {
     passport.authenticate("local",
     (err, user, info) => {
+
         // server error?
         if(err) {
             return next(err);
@@ -74,7 +75,7 @@ module.exports.processRegisterPage = (req, res, next) => {
         email: req.body.email,
         displayName: req.body.displayName,
     });
-    console.log(newUser);
+
     User.register(newUser, req.body.password, (err) => {
         if(err) {
             console.log("Error");
