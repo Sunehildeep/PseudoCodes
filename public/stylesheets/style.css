@@ -75,12 +75,6 @@ nav {
   padding: 10px 15px;
 }
 
-.sign-up {
-  margin-top: -10px;
-  cursor: pointer;
-  border: none;
-}
-
 nav ul li a,
 nav ul li a:after,
 nav ul li a:before {
@@ -335,6 +329,7 @@ tr:last-child {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .cancel {
   background-color: #a8e890;
   color: white;
@@ -348,6 +343,7 @@ tr:last-child {
   border-radius: 4px;
   cursor: pointer;
 }
+
 /* Login Section */
 .container {
   text-align: center;
@@ -386,7 +382,13 @@ tr:last-child {
 
 #registerLink {
   position: relative;
-  top: 4rem;
+  top: 1rem;
+}
+
+.login {
+  margin-top: 3px;
+  cursor: pointer;
+  border: none;
 }
 
 /* Register Section */
@@ -423,6 +425,12 @@ tr:last-child {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   outline: none;
+}
+
+.sign-up {
+  margin-top: -10px;
+  cursor: pointer;
+  border: none;
 }
 
 /* Footer Section */
