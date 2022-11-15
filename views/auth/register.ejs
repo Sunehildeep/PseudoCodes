@@ -1,9 +1,16 @@
-<%- include('partials/header'); %>
+<%- include('../partials/header'); %>
 
-<%- include('partials/nav'); %>
+<%- include('../partials/nav'); %>
 
 <!-- Register Section -->
 <main>
+    <!-- Message Area -->
+    <% if(messages.length > 0) {%>
+        <div>
+            <%= messages %>
+        </div>
+    <% } %>
+    
     <div class="containerReg">
         <div class="register">
             <h3 class="project-name" style="padding: 20px; font-size: 2.5rem">
@@ -23,6 +30,6 @@
 </main>
 
 
-<%- include('partials/footer'); %>
+<%- include('../partials/footer'); %>
 
-<%- include('partials/bottom'); %>
+<%- include('../partials/bottom'); %>

@@ -1,9 +1,16 @@
-<%- include('partials/header'); %> 
+<%- include('../partials/header'); %> 
 
-<%- include('partials/nav'); %>
+<%- include('../partials/nav'); %>
 
 <!-- Login Section -->
 <main>
+  <!-- Message Area -->
+  <% if(messages.length > 0) {%>
+      <div>
+        <%= messages %>
+      </div>
+  <% } %>
+  
   <div class="container">
     <div class="login">
       <h3 class="project-name" style="padding: 20px; font-size: 2.5rem">
@@ -14,11 +21,12 @@
       <label class="loginLabel" for="username">PASSWORD:</label>
       <input class="loginInput" type="password" style="margin-bottom: 50px;" />
       <a href="/" class="nav-item nav-item-btn" >LOGIN</a></li>
+      <a href="/surveys/active-surveys" class="nav-item nav-item-btn" >CANCEL</a></li>
       <p id="registerLink" >Don’t have an account? <a target="_blank" href="/register"  style="color: #425F57;">Create One</a> </p>
     </div>
   </div>
 </main>
 
-<%- include('partials/footer'); %> 
+<%- include('../partials/footer'); %> 
 
-<%- include('partials/bottom'); %>
+<%- include('../partials/bottom'); %>

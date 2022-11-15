@@ -24,7 +24,7 @@ let User = mongoose.Schema
        email: 
        {
             type: String,
-            default: '',
+            default: "",
             trim: true,
             required: 'E-mail address is required'
 
@@ -32,7 +32,7 @@ let User = mongoose.Schema
        displayName: 
        {
             type: String,
-            default: '',
+            default: "",
             trim: true,
             required: 'Display name is required'
        },
