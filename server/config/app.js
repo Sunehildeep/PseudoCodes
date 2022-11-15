@@ -13,7 +13,7 @@ let flash = require('connect-flash');
 
 // database setup
 const mongoose = require('mongoose');
-const DB = require('./config/db');
+const DB = require('../config/db');
 
 // point mongoose to the DB URI
 mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -24,22 +24,22 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
-var indexRouter = require('./routes');
-var usersRouter = require('./routes/users');
-var surveyRouter = require('./routes/survey');
+var indexRouter = require('../routes');
+var usersRouter = require('../routes/users');
+var surveyRouter = require('../routes/survey');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, '../views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, './public')));
-app.use(express.static(path.join(__dirname, './node_modules')));
+app.use(express.static(path.join(__dirname, '../../public')));
+app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 // setup express session
 app.use(session({
@@ -58,7 +58,7 @@ app.use(passport.session());
 // passport user configuration
 
 // create a User Model Instance
-let userModel = require('./models/user');
+let userModel = require('../models/user');
 let User = userModel.User; 
 
 // implement user authentication strategy
