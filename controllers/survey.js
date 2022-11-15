@@ -13,15 +13,17 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
     } else {
       res.render("survey/active-surveys", {
         title: "Active Surveys",
-        surveyList,
-      });
+        surveyList, 
+        displayName: req.user ? req.user.displayName: ""});
     }
   });
 };
 
 //add survey content
 module.exports.displayCreateSurveyPage = (req, res, next) => {
-  res.render("survey/create-survey", { title: "Create a Survey" });
+  res.render("survey/create-survey", { 
+    title: "Create a Survey",
+    displayName: req.user ? req.user.displayName: ""});
 };
 
 module.exports.processCreateSurveyPage = (req, res, next) => {
@@ -52,7 +54,10 @@ module.exports.displayEditSurveyPage = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
-      res.render('survey/edit-survey', {title: 'Edit Survey', survey: surveyToEdit})
+      res.render('survey/edit-survey', {
+        title: 'Edit Survey', 
+        survey: surveyToEdit,
+        displayName: req.user ? req.user.displayName: ""});
     }
   });
 }
