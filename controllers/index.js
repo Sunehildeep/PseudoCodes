@@ -8,11 +8,11 @@ let userModel = require("../models/user");
 let User = userModel.User; //alias
 
 module.exports.displayHomePage = (req, res, next) => {
-    res.render("index", { title: "Welcome!" });
+    res.render("index", { title: "Welcome!", displayName: req.user ? req.user.displayName : ""});
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render("about", { title: "About" });
+    res.render("about", { title: "About", displayName: req.user ? req.user.displayName : "" });
 }
 
 module.exports.displayLoginPage = (req, res, next) => {
