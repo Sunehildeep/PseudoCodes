@@ -10,7 +10,7 @@
         <li><a href="/about" class="nav-item">About</a></li>
         <li><a href="/surveys/active-surveys" class="nav-item">Active Surveys</a></li>
         <% if(typeof displayName == 'string' && displayName) { %>
-            <li><a class="nav-item">Welcome, <%= displayName %></a></li>
+            <li><a class="nav-item" style="font-weight: bold; color: #a8e890">Welcome, <%= displayName %></a></li>
             <li><a href="/logout" class="nav-item">Logout</a></li>
         <% } else { %>
             <li><a href="/login" class="nav-item">Login</a></li>
