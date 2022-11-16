@@ -7,6 +7,10 @@ import { NavComponent } from './partials/nav/nav.component';
 import { FooterComponent } from './partials/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ActiveSurveysComponent } from './pages/active-surveys/active-surveys.component';
+import { CreateSurveyComponent } from './pages/create-survey/create-survey.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { AboutComponent } from './pages/about/about.component';
     NavComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    ActiveSurveysComponent,
+    CreateSurveyComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
