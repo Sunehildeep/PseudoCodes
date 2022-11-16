@@ -15,12 +15,6 @@
     padding: 10px 15px;
   }
 
-  main {
-    background: url('../../../assets/images/background.jpg') center no-repeat;
-    background-size: cover;
-    color: white;
-  }
-
 .home-content {
     text-align: center;
   }
