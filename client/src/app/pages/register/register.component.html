@@ -1,1 +1,47 @@
-<p>register works!</p>
+<!-- Register Section -->
+<main>
+  <!-- Message Area -->
+
+  <!-- <div *ngIf="messages.length > 0">messages</div> -->
+
+  <div class="containerReg">
+    <div class="register">
+      <h3 class="project-name" style="padding: 20px; font-size: 2.5rem">
+        Surveylance
+      </h3>
+      <form method="POST">
+        <label class="regLabel" style="margin-top: 20px">USERNAME:</label>
+        <input
+          class="regInput"
+          name="username"
+          type="text"
+          style="margin-bottom: 25px"
+        />
+        <label class="regLabel">EMAIL:</label>
+        <input
+          class="regInput"
+          name="email"
+          type="email"
+          style="margin-bottom: 25px"
+        />
+        <label class="regLabel" style="margin-top: 30px">DISPLAY NAME:</label>
+        <input
+          class="regInput"
+          name="displayName"
+          type="text"
+          style="margin-bottom: 25px"
+        />
+        <label class="regLabel">PASSWORD:</label>
+        <input
+          class="regInput"
+          name="password"
+          type="password"
+          style="margin-bottom: 50px"
+        />
+        <button type="submit" class="nav-item nav-item-btn sign-up">
+          SIGN UP
+        </button>
+      </form>
+    </div>
+  </div>
+</main>

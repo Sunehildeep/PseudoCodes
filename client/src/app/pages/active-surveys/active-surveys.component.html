@@ -1,1 +1,43 @@
-<p>active-surveys works!</p>
+<!-- Active Surveys Section -->
+<main>
+  <table class="active-surveys">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Survey Name</th>
+        <th>Start Date</th>
+        <th>Closing Date</th>
+        <th>View Questions</th>
+        <th>
+          <a href="create-survey"
+            ><button class="survey-button">
+              <i class="fa-solid fa-plus"></i> Add
+            </button></a
+          >
+        </th>
+      </tr>
+    </thead>
+
+    <tbody *ngfor="let count of counts">
+      <tr>
+        <td><%= surveyList[count].author %></td>
+        <td><%= surveyList[count].surveyName %></td>
+        <td><%= surveyList[count].startDate %></td>
+        <td><%= surveyList[count].closeDate %></td>
+        <td>
+          <a class="survey-button" href="<%= surveyList[count]._id %>">View</a>
+        </td>
+        <td>
+          <a class="survey-button" href="edit/<%= surveyList[count]._id %>"
+            ><button class="survey-button">
+              <i class="fa-solid fa-pencil"></i></button
+          ></a>
+          <a class="survey-button" href="delete/<%= surveyList[count]._id %>"
+            ><button class="survey-button">
+              <i class="fa-solid fa-trash"></i></button
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
