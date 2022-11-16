@@ -1,0 +1,98 @@
+/* NavBar Section */
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+  }
+
+.logo-name {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    margin-left: -100px;
+  }
+  
+  .project-name {
+    font-family: "Dancing Script", cursive;
+    color: white;
+    font-size: 2rem;
+    font-weight: 100;
+    text-decoration: none;
+  }
+  
+  #menu-icon {
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  
+  #menu-icon:hover {
+    color: #a8e890;
+  }
+  
+  nav {
+    background: #749f82;
+    position: fixed;
+    width: 100%;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 111;
+    padding: 7px 115px;
+    box-shadow: rgba(33, 35, 38, 0.3) 0px 10px 10px -10px;
+  }
+  
+  .nav-menu {
+    display: flex;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
+  
+  .nav-item {
+    margin: 30px;
+  }
+  
+  .nav-item-btn {
+    background-color: #a8e890;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
+  
+  nav ul li a,
+  nav ul li a:after,
+  nav ul li a:before {
+    transition: all 0.5s;
+  }
+  
+  nav.effect ul li a,
+  nav.fill ul li a {
+    position: relative;
+  }
+  nav.effect ul li a:after,
+  nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: #a8e890;
+    height: 2px;
+  }
+  nav.effect ul li a:hover:after {
+    width: 100%;
+  }
