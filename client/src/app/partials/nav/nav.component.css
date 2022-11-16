@@ -96,3 +96,45 @@
   nav.effect ul li a:hover:after {
     width: 100%;
   }
+
+  
+   /* Responsive Design */
+   @media (max-width: 1500px) {
+    nav {
+      padding: 10px 37px;
+    }
+    .nav-menu a {
+      font-size: 1.3rem;
+    }
+    .nav-item {
+      margin: 10px;
+    }
+    .logo-name {
+      margin-left: -20px;
+    }
+  }
+  
+  
+  @media (max-width: 1060px) {
+    #menu-icon {
+      display: block;
+    }
+    nav .nav-menu {
+      position: absolute;
+      top: -550px;
+      right: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background: #749f82;
+      transform: 0.4s;
+    }
+    nav .nav-menu.active {
+      top: 150px;
+    }
+    .nav-menu a {
+      display: block;
+      padding: 0.7rem;
+    }
+  }
