@@ -10,6 +10,10 @@ export class FooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const year = new Date().getFullYear();
+    const copyright = `<p> © ${year} Copyright PseudoCodes </p>`;
+    const date = document.getElementById("copyright-year")!;
+    date.innerHTML = copyright;
   }
 
 }
