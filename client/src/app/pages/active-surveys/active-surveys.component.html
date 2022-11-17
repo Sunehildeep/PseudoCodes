@@ -18,21 +18,21 @@
       </tr>
     </thead>
 
-    <tbody *ngfor="let count of counts">
+    <tbody *ngFor="let survey of Surveys; let i = index">
       <tr>
-        <td><%= surveyList[count].author %></td>
-        <td><%= surveyList[count].surveyName %></td>
-        <td><%= surveyList[count].startDate %></td>
-        <td><%= surveyList[count].closeDate %></td>
+        <td>{{ survey.author }}</td>
+        <td>{{ survey.surveyName }}</td>
+        <td>{{ survey.startDate }}</td>
+        <td>{{ survey.closeDate }}</td>
         <td>
-          <a class="survey-button" href="<%= surveyList[count]._id %>">View</a>
+          <a class="survey-button" href="{{ survey._id }}">View</a>
         </td>
         <td>
-          <a class="survey-button" href="edit/<%= surveyList[count]._id %>"
+          <a class="survey-button" href="edit/{{ survey._id }}"
             ><button class="survey-button">
               <i class="fa-solid fa-pencil"></i></button
           ></a>
-          <a class="survey-button" href="delete/<%= surveyList[count]._id %>"
+          <a class="survey-button" (click)="deleteSurvey(survey._id, i)"
             ><button class="survey-button">
               <i class="fa-solid fa-trash"></i></button
           ></a>

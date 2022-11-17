@@ -24,9 +24,7 @@ mongoDB.once('open', ()=>{
   console.log('Connected to MongoDB...');
 });
 
-var indexRouter = require('../routes');
-var usersRouter = require('../routes/users');
-var surveyRouter = require('../routes/survey');
+var surveyRouter = require('../routes/survey.js');
 
 var app = express();
 
@@ -68,9 +66,7 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/surveys', surveyRouter);
+app.use('/api', surveyRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

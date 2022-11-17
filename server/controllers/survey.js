@@ -11,19 +11,9 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
     if (err) {
       return console.error(err);
     } else {
-      res.render("survey/active-surveys", {
-        title: "Active Surveys",
-        surveyList, 
-        displayName: req.user ? req.user.displayName: ""});
+      res.json(surveyList);
     }
   });
-};
-
-//add survey content
-module.exports.displayCreateSurveyPage = (req, res, next) => {
-  res.render("survey/create-survey", { 
-    title: "Create a Survey",
-    displayName: req.user ? req.user.displayName: ""});
 };
 
 module.exports.processCreateSurveyPage = (req, res, next) => {
@@ -40,27 +30,10 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
-      res.redirect("/surveys/active-surveys");
+      res.json(data);
     }
   });
 };
-
-//edit survey content
-module.exports.displayEditSurveyPage = (req, res, next) => {
-  let id = req.params.id;
-
-  Survey.findById(id, (err, surveyToEdit) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    } else {
-      res.render('survey/edit-survey', {
-        title: 'Edit Survey', 
-        survey: surveyToEdit,
-        displayName: req.user ? req.user.displayName: ""});
-    }
-  });
-}
 
 module.exports.processEditSurveyPage = (req, res, next) =>{
   let id = req.params.id;
