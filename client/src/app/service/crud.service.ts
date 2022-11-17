@@ -14,9 +14,13 @@ import { Survey } from './surveys';
 
 export class CrudService {
   // Node/Express API
-  REST_API: string = 'http://localhost:3000/api';
+  REST_API: string = 'http://localhost:4200/api';
 
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+  httpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Access-Control-Allow-Origin': 'http://localhost:3000'
+  });
 
   constructor(private httpClient: HttpClient) {}
 

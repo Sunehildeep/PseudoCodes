@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
+import { CrudService } from '../../service/crud.service';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-survey',
@@ -7,9 +10,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateSurveyComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  surveyForm: FormGroup;
+  constructor(
+    public formBuilder: FormBuilder,
+    private router: Router,
+    private ngZone: NgZone,
+    private crudService: CrudService
+  ) {
+    this.surveyForm = this.formBuilder.group({
+      author: [''],
+      startDate: [''],
+      closingDate: [''],
+      title: [''],
+      surveyName: [''],
+      questions: [''],
+    });
   }
 
+  ngOnInit(): void {
+
+  }
+
+  onSubmit(): any {
+    this.crudService.CreateSurvey(this.surveyForm.value).subscribe(
+      () => {
+        console.log('Survey added successfully!');
+        this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'));
+      },
+        (err) => {
+          console.log(err);
+        }
+    );
+  }
 }

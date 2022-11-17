@@ -22,4 +22,6 @@ router.post("/create-survey", requireAuth, surveyController.processCreateSurveyP
 /* Post edit survey page. */
 router.post("/edit/:id", requireAuth, surveyController.processEditSurveyPage);
 
+router.delete("/delete-survey/:id", requireAuth, surveyController.performDeleteSurvey);
+
 module.exports = router;

@@ -30,7 +30,7 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
-      res.json(data);
+      res.json(Survey);
     }
   });
 };
@@ -54,20 +54,24 @@ module.exports.processEditSurveyPage = (req, res, next) =>{
       res.end(err);
     }
     else{
-      res.redirect('/surveys/active-surveys');
+      res.status(200).json({
+        msg: data,
+      });
     }
   });
 }
 
 //delete survey content
-module.exports.deleteSurvey = (req, res, next) => {
+module.exports.performDeleteSurvey = (req, res, next) => {
   let id = req.params.id;
 
-  Survey.deleteOne({ _id: id }, (err) => {
+  Survey.deleteOne({ _id: id }, (err, data) => {
     if (err) {
       return console.error(err);
     } else {
-      res.redirect("/surveys/active-surveys");
+      res.status(200).json({
+        msg: data,
+      });
     }
   });
 };
