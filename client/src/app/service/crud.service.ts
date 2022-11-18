@@ -7,6 +7,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Survey } from './surveys';
+import { User } from './users';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class CrudService {
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:3000'
+    'Access-Control-Allow-Origin': 'http://localhost:4200'
   });
 
   constructor(private httpClient: HttpClient) {}
@@ -42,6 +43,26 @@ export class CrudService {
   // Create a new survey
   CreateSurvey(data: Survey): Observable<any> {
     let API_URL = `${this.REST_API}/create-survey`;
+    return this.httpClient.post(API_URL, data)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // Logout
+  Logout(): Observable<any> {
+    let API_URL = `${this.REST_API}/logout`;
+    return this.httpClient.get(API_URL, {})
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
+  // Login
+  Login(data: User): Observable<any> {
+    let API_URL = `${this.REST_API}/login`;
     return this.httpClient.post(API_URL, data)
       .pipe(
         retry(2),

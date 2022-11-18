@@ -8,7 +8,7 @@ let surveyController = require("../controllers/survey");
 // function for guard purposes
 function requireAuth(req, res, next) {
     if(!req.isAuthenticated()) {
-        return res.redirect("/login");
+        return res.status(403).send("Unauthorized");
     }
     next();
 }
@@ -21,6 +21,10 @@ router.post("/create-survey", requireAuth, surveyController.processCreateSurveyP
 
 /* Post edit survey page. */
 router.post("/edit/:id", requireAuth, surveyController.processEditSurveyPage);
+
+router.post("/login", surveyController.loginUser);
+
+router.get("/logout", surveyController.logoutUser);
 
 router.delete("/delete-survey/:id", requireAuth, surveyController.performDeleteSurvey);
 

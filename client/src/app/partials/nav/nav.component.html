@@ -11,6 +11,14 @@
     <li>
       <a href="/active-surveys" class="nav-item">Active Surveys</a>
     </li>
-    <li><a href="/register" class="nav-item nav-item-btn">Sign Up</a></li>
+    <div *ngIf="displayName; then logout else login" >
+
+    </div>
+
+    <ng-template #logout><li><a (click)="onLogout()" href="#" onclick="event.preventDefault();" class="nav-item nav-item-btn">Logout</a></li></ng-template>
+    <ng-template #login>
+      <li><a href="/login" class="nav-item">Login</a></li>
+      <li><a href="/register" class="nav-item nav-item-btn">Sign Up</a></li>
+    </ng-template>
   </ul>
 </nav>
