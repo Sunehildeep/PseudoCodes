@@ -26,6 +26,10 @@ router.post("/login", surveyController.loginUser);
 
 router.get("/logout", surveyController.logoutUser);
 
+// Register User
+router.post("/register", surveyController.registerUser);
+
+// Delete Survey
 router.delete("/delete-survey/:id", requireAuth, surveyController.performDeleteSurvey);
 
 module.exports = router;

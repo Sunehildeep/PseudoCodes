@@ -7,6 +7,8 @@ let Survey = require("../models/survey");
 const passport = require("passport");
 let jwt = require('jsonwebtoken');
 let DB = require('../config/db');
+let userModel = require('../models/user');
+let User = userModel.User;
 //add survey content
 module.exports.displayActiveSurveysPage = (req, res, next) => {
   Survey.find((err, surveyList) => {
@@ -132,3 +134,31 @@ module.exports.performDeleteSurvey = (req, res, next) => {
     }
   });
 };
+
+//register user
+module.exports.registerUser = (req, res, next) => {
+  let newUser = new User({
+    username: req.body.username,
+    email: req.body.email,
+    displayName: req.body.displayName
+});
+  
+  User.register(newUser, req.body.password, (err) => {
+    if(err)
+    {
+      console.log("Error: Inserting New User");
+      if(err.name == "UserExistsError")
+      {
+        console.log("Registration Error: User Already Exists!");
+      }
+      return res.json({success: false, msg: 'Failed to Register User!'});
+    }
+    else
+    {
+      // if no error exists, then registration is successful
+
+      // redirect the user
+      return res.json({success: true, msg: 'User Registered Successfully!'});
+    }
+  });
+}

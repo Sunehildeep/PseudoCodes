@@ -37,9 +37,10 @@ export class LoginComponent implements OnInit {
         console.log('User logged in!');
         localStorage.setItem('ACCESS_TOKEN', res.token);
         localStorage.setItem('EXPIRES_IN', res.expiresIn);
-        localStorage.setItem('displayName', res.displayName);
+        localStorage.setItem('displayName', res.user.displayName);
 
         console.log(localStorage.getItem('ACCESS_TOKEN'));
+        console.log(localStorage.getItem('displayName'));
         this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'))
         window.location.reload();
       },

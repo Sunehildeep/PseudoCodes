@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+let cors = require('cors');
 // modules for authentication
 let session = require('express-session');
 let passport = require('passport');
@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
-
+app.use(cors());
 // setup express session
 app.use(session({
   secret: "Secret",

@@ -8,6 +8,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Survey } from './surveys';
 import { User } from './users';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +16,10 @@ import { User } from './users';
 
 export class CrudService {
   // Node/Express API
-  REST_API: string = 'http://localhost:4200/api';
+  REST_API: string = 'http://localhost:3000/api';
 
   httpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Access-Control-Allow-Origin': 'http://localhost:4200'
+    'Content-Type': 'application/json'
   });
 
   constructor(private httpClient: HttpClient) {}
@@ -59,6 +58,17 @@ export class CrudService {
         catchError(this.handleError)
       )
   }
+
+  // Register a new user
+  Register(data: User): Observable<any> {
+    let API_URL = `${this.REST_API}/register`;
+    return this.httpClient.post(API_URL, data)
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
+
 
   // Login
   Login(data: User): Observable<any> {

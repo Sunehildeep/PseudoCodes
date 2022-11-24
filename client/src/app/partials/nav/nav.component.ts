@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class NavComponent implements OnInit {
   displayName: string = localStorage.getItem('displayName') || '';
-
+  
   constructor(
     private crudService: CrudService,
     private router: Router,
