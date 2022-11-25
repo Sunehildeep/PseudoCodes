@@ -1,21 +1,24 @@
 <!-- Create Survey Section -->
+
+
 <main>
   <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
-    <div class="create-survey">
-      <h3 class="survey-title">Create a new survey</h3>
-      <div class="survey-options">
+    <div class="update-survey">
+      <h3 class="survey-title">Edit your survey</h3>
+      <div  class="survey-options">
         <label class="survey-titles" for="author" style="left: 6rem"
-          >NAME:</label
+        >NAME:</label
         >
         <input
           formControlName="author"
           class="surveyInput"
           type="text"
           style="top: 3.5rem; left: -6.2rem"
+          value="12345"
         />
 
         <label class="survey-titles" for="surveyName" style="left: -1rem"
-          >SURVEY NAME:</label
+        >SURVEY NAME:</label
         >
         <input
           formControlName="surveyName"
@@ -28,7 +31,7 @@
           class="survey-titles"
           for="startDate"
           style="left: 6rem; top: 4.5rem"
-          >START DATE:</label
+        >START DATE:</label
         >
         <input
           formControlName="startDate"
@@ -41,7 +44,7 @@
           class="survey-titles"
           for="closingDate"
           style="left: -1rem; top: 4.5rem"
-          >CLOSING DATE:</label
+        >CLOSING DATE:</label
         >
         <input
           formControlName="closingDate"

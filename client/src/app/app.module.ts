@@ -13,6 +13,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { UpdateSurveyComponent } from './pages/update-survey/update-survey.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     ActiveSurveysComponent,
     CreateSurveyComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateSurveyComponent
   ],
   imports: [
     BrowserModule,
