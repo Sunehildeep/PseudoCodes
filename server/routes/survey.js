@@ -29,6 +29,12 @@ router.get("/logout", surveyController.logoutUser);
 // Register User
 router.post("/register", surveyController.registerUser);
 
+// update survey
+router.post("/update/:id", requireAuth, surveyController.updateSurvey);
+
+// read survey by id
+router.get("/read-survey/:id", requireAuth, surveyController.displayEditSurveyPage);
+
 // Delete Survey
 router.delete("/delete-survey/:id", requireAuth, surveyController.performDeleteSurvey);
 

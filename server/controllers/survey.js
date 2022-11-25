@@ -94,6 +94,46 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
   });
 };
 
+
+// read survey by id
+module.exports.displayEditSurveyPage = (req, res, next) => {
+  let id = req.params.id;
+
+  Survey.findById(id, (err, surveyToEdit) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.json(surveyToEdit);
+    }
+  });
+};
+
+
+//update survey content
+module.exports.updateSurvey = (req, res, next) => {
+  let id = req.params.id;
+
+  let updatedSurvey = Survey({
+    "_id": id,
+    "author": req.body.author,
+    "surveyName": req.body.surveyName,
+    "startDate": req.body.startDate,
+    "closeDate": req.body.closingDate,
+    "questions": req.body.questions,
+  });
+  
+  Survey.upadteOne({_id: id}, updated, (err) => {
+    if (err) {
+      console.log(err);
+      res.end
+      (err);
+    } else {
+      res.json(updatedSurvey);
+    }
+  });
+};
+
 module.exports.processEditSurveyPage = (req, res, next) =>{
   let id = req.params.id;
 
