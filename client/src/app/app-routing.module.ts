@@ -8,6 +8,8 @@ import {CreateSurveyComponent} from "./pages/create-survey/create-survey.compone
 import {LoginComponent} from "./pages/login/login.component";
 import {UpdateSurveyComponent} from "./pages/update-survey/update-survey.component";
 
+
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },

@@ -32,7 +32,8 @@
           <a
             class="survey-button"
             style="margin-right: 1rem"
-            href="update-survey/"
+            href="update-survey"
+            (click)="saveId(survey._id, i)"
 
             ><button class="survey-button">
               <i class="fa-solid fa-pencil"></i></button

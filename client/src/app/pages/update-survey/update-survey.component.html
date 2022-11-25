@@ -1,0 +1,91 @@
+<!-- Create Survey Section -->
+
+
+<main>
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <div class="update-survey">
+      <h3 class="survey-title">Edit your survey</h3>
+      <div  class="survey-options">
+        <label class="survey-titles" for="author" style="left: 6rem"
+        >NAME:</label
+        >
+        <input
+          formControlName="author"
+          class="surveyInput"
+          type="text"
+          style="top: 3.5rem; left: -6.2rem"
+          value="12345"
+        />
+
+        <label class="survey-titles" for="surveyName" style="left: -1rem"
+        >SURVEY NAME:</label
+        >
+        <input
+          formControlName="surveyName"
+          class="surveyInput"
+          type="text"
+          style="top: 3.5rem; left: -14.5rem"
+        />
+
+        <label
+          class="survey-titles"
+          for="startDate"
+          style="left: 6rem; top: 4.5rem"
+        >START DATE:</label
+        >
+        <input
+          formControlName="startDate"
+          class="surveyInput"
+          type="text"
+          style="top: 7.5rem; left: -6.2rem"
+        />
+
+        <label
+          class="survey-titles"
+          for="closingDate"
+          style="left: -1rem; top: 4.5rem"
+        >CLOSING DATE:</label
+        >
+        <input
+          formControlName="closingDate"
+          class="surveyInput"
+          type="text"
+          style="top: 7.5rem; left: -14.5rem"
+        />
+      </div>
+
+      <h3 style="font-size: 1.7rem; position: relative; top: 10rem">
+        Questions
+      </h3>
+      <div class="survey-questions">
+        <input
+          type="text"
+          formControlName="questions"
+          placeholder="Question 1"
+        />
+        <input
+          type="text"
+          formControlName="questions"
+          placeholder="Question 2"
+        />
+        <input
+          type="text"
+          formControlName="questions"
+          placeholder="Question 3"
+        />
+        <input
+          type="text"
+          formControlName="questions"
+          placeholder="Question 4"
+        />
+        <input
+          type="text"
+          formControlName="questions"
+          placeholder="Question 5"
+        />
+      </div>
+      <button class="submit" type="submit">Submit</button>
+      <a href="/active-surveys" class="cancel">Cancel</a>
+    </div>
+  </form>
+</main>
