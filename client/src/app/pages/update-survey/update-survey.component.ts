@@ -24,8 +24,7 @@ export class UpdateSurveyComponent implements OnInit {
     this.surveyForm = this.formBuilder.group({
       author: [''],
       startDate: [''],
-      closingDate: [''],
-      title: [''],
+      closeDate: [''],
       surveyName: [''],
       questions: [''],
     });
@@ -38,14 +37,19 @@ export class UpdateSurveyComponent implements OnInit {
     }
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
-        this.Survey = res;
-        console.log(this.Survey);
+        console.log(res.data.questions);
+        this.surveyForm.setValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate, surveyName: res.data.surveyName, questions: res.data.questions});
       });
     }
   }
 
 
   onSubmit(): any {
+    // Check if form is filled out
+    if (this.surveyForm.value.author == '' || this.surveyForm.value.startDate == '' || this.surveyForm.value.closeDate == '' || this.surveyForm.value.title == '' || this.surveyForm.value.surveyName == '' || this.surveyForm.value.questions == '') {
+      return alert("Please fill out all fields");
+    }
+    console.log(this.surveyForm.value.questions);
     this.crudService.UpdateSurvey(SurveyID, this.surveyForm.value).subscribe(
       () => {
         console.log('Survey added edited!');
