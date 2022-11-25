@@ -114,14 +114,14 @@ module.exports.displayEditSurveyPage = (req, res, next) => {
 //update survey content
 module.exports.updateSurvey = (req, res, next) => {
   let id = req.params.id;
-
+  let data = res.body.data;
   let updatedSurvey = Survey({
     "_id": id,
-    "author": req.body.author,
-    "surveyName": req.body.surveyName,
-    "startDate": req.body.startDate,
-    "closeDate": req.body.closingDate,
-    "questions": req.body.questions,
+    "author": data.author,
+    "surveyName": data.surveyName,
+    "startDate": data.startDate,
+    "closeDate": data.closingDate,
+    "questions": data.questions,
   });
   
   Survey.upadteOne({_id: id}, updated, (err) => {
@@ -192,14 +192,14 @@ module.exports.registerUser = (req, res, next) => {
       {
         console.log("Registration Error: User Already Exists!");
       }
-      return res.json({success: false, msg: 'Failed to Register User!'});
+      return res.status(404).json({success: false, message: 'Registration Error: User Already Exists!'});
     }
     else
     {
       // if no error exists, then registration is successful
 
       // redirect the user
-      return res.json({success: true, msg: 'User Registered Successfully!'});
+      return res.json({success: true, message: 'User Registered Successfully!'});
     }
   });
 }
