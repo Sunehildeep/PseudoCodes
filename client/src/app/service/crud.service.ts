@@ -17,10 +17,12 @@ import { FormGroup } from '@angular/forms';
 export class CrudService {
   // Node/Express API
   REST_API: string = 'http://localhost:3000/api';
-
+  
   httpHeaders = new HttpHeaders({
-    'Content-Type': 'application/json'
-  });
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    });
 
   constructor(private httpClient: HttpClient) {}
 
@@ -31,6 +33,7 @@ export class CrudService {
 
   // Get a survey by ID
   GetSurvey(id: any): Observable<any> {
+    this.loadToken();
     let API_URL = `${this.REST_API}/read-survey/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders })
       .pipe(
@@ -41,6 +44,7 @@ export class CrudService {
 
   // Create a new survey
   CreateSurvey(data: Survey): Observable<any> {
+    this.loadToken();
     let API_URL = `${this.REST_API}/create-survey`;
     return this.httpClient.post(API_URL, data)
       .pipe(
@@ -82,8 +86,9 @@ export class CrudService {
 
   // Update a survey by ID
   UpdateSurvey(id: any, data: any): Observable<any> {
+    this.loadToken();
     let API_URL = `${this.REST_API}/update-survey/${id}`;
-    return this.httpClient.put(API_URL, data, { headers: this.httpHeaders })
+    return this.httpClient.put(API_URL, {id, data}, { headers: this.httpHeaders })
       .pipe(
         retry(2),
         catchError(this.handleError)
@@ -92,6 +97,7 @@ export class CrudService {
 
   // Delete a survey by ID
   DeleteSurvey(id: any): Observable<any> {
+    this.loadToken();
     let API_URL = `${this.REST_API}/delete-survey/${id}`;
     return this.httpClient.delete(API_URL, { headers: this.httpHeaders }).pipe(
       retry(2),
@@ -111,5 +117,11 @@ export class CrudService {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
+  }
+
+  private loadToken(): void
+  {
+    var token = localStorage.getItem('id_token');
+    if(token) this.httpHeaders = this.httpHeaders.set('Authorization',token);
   }
 }

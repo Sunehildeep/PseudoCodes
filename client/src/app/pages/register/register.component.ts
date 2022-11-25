@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('ACCESS_TOKEN') !== null) {
+    if(localStorage.getItem('id_token') !== null) {
       this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'))
     }
   }

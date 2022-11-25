@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(localStorage.getItem('ACCESS_TOKEN') !== null) {
+    if(localStorage.getItem('id_token') !== null) {
       this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'))
     }
   }
@@ -35,9 +35,10 @@ export class LoginComponent implements OnInit {
     this.crudService.Login(this.loginForm.value).subscribe(
       (res) => {
         console.log('User logged in!');
-        localStorage.setItem('ACCESS_TOKEN', res.token);
+        localStorage.setItem('id_token', 'Bearer '+res.token);
         localStorage.setItem('EXPIRES_IN', res.expiresIn);
         localStorage.setItem('displayName', res.user.displayName);
+        localStorage.setItem('user', JSON.stringify(res.user));
 
         console.log(localStorage.getItem('ACCESS_TOKEN'));
         console.log(localStorage.getItem('displayName'));

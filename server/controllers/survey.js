@@ -4,7 +4,7 @@ let mongoose = require("mongoose");
 
 // connect to our Survey Model
 let Survey = require("../models/survey");
-const passport = require("passport");
+let passport = require("passport");
 let jwt = require('jsonwebtoken');
 let DB = require('../config/db');
 let userModel = require('../models/user');
@@ -49,6 +49,8 @@ module.exports.loginUser = (req, res, next) => {
             username: user.username,
             email: user.email
           }
+
+          console.log(payload);
 
           const authToken = jwt.sign(payload, DB.Secret, {
             expiresIn: 604800 // 1 week
