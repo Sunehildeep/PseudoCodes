@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  displayName: string = localStorage.getItem('displayName') || '';
+  displayName: string = sessionStorage.getItem('displayName') || '';
   
   constructor(
     private crudService: CrudService,
@@ -22,11 +22,11 @@ export class NavComponent implements OnInit {
   onLogout(): void {
     this.crudService.Logout().subscribe(
       () => {
-        localStorage.removeItem('ACCESS_TOKEN');
-        localStorage.removeItem('EXPIRES_IN');
-        localStorage.removeItem('displayName');
+        sessionStorage.removeItem('id_token');
+        sessionStorage.removeItem('EXPIRES_IN');
+        sessionStorage.removeItem('displayName');
         console.log("OK - User logged out");
-        window.location.reload();
+        window.location.href="/home";
       },
       (err) => {
         console.log(err);

@@ -113,7 +113,7 @@ export class CrudService {
       errorMessage = error.error.message;
     } else {
       // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      errorMessage = `${error.error.message}`;
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
@@ -121,7 +121,7 @@ export class CrudService {
 
   private loadToken(): void
   {
-    var token = localStorage.getItem('id_token');
+    var token = sessionStorage.getItem('id_token');
     if(token) this.httpHeaders = this.httpHeaders.set('Authorization',token);
   }
 }

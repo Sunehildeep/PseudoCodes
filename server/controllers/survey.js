@@ -32,8 +32,7 @@ module.exports.loginUser = (req, res, next) => {
         // Details error
         if(!user)
         {
-          req.flash('loginMessage', 'Authentication Error');
-          return res.redirect('/login');
+          return res.status(404).json({success: false, message: 'The username or password is incorrect!'});
         }
         req.login(user, (err) => {
           // Server Error
@@ -56,7 +55,7 @@ module.exports.loginUser = (req, res, next) => {
             expiresIn: 604800 // 1 week
           });
 
-          return res.json({success: true, msg: 'User Logged in Successfully!', user: {
+          return res.json({success: true, message: 'User Logged in Successfully!', user: {
               id: user._id,
               displayName: user.displayName,
               username: user.username,
@@ -71,7 +70,7 @@ module.exports.logoutUser = (req, res, next) => {
       if (err) { return next(err); }
       else {
         res.status(200).json({
-            msg: "User Logged out Successfully!",
+            message: "User Logged out Successfully!",
         });
       }
     });
