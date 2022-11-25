@@ -32,10 +32,16 @@ export class UpdateSurveyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.crudService.GetSurvey(SurveyID).subscribe((res) => {
-      this.Survey = res;
-      console.log(this.Survey);
-    });
+    if(sessionStorage.getItem('id_token') == null) {
+      alert("Please login first");
+      this.ngZone.run(() => this.router.navigateByUrl('/login'))
+    }
+    else {
+      this.crudService.GetSurvey(SurveyID).subscribe((res) => {
+        this.Survey = res;
+        console.log(this.Survey);
+      });
+    }
   }
 
 

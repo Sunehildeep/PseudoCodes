@@ -28,7 +28,10 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    if(sessionStorage.getItem('id_token') == null) {
+      alert("Please login first");
+      this.ngZone.run(() => this.router.navigateByUrl('/login'))
+    }
   }
 
   onSubmit(): any {
