@@ -30,7 +30,7 @@ router.get("/logout", surveyController.logoutUser);
 router.post("/register", surveyController.registerUser);
 
 // update survey
-router.post("/update/:id", requireAuth, surveyController.updateSurvey);
+router.put("/update-survey/:id", requireAuth, surveyController.updateSurvey);
 
 // read survey by id
 router.get("/read-survey/:id", requireAuth, surveyController.displayEditSurveyPage);
