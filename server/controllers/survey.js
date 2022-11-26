@@ -105,61 +105,40 @@ module.exports.displayEditSurveyPage = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
-      res.json(surveyToEdit);
+      res.json({data: surveyToEdit});
     }
   });
 };
 
 
 //update survey content
-module.exports.updateSurvey = (req, res, next) => {
+module.exports.processEditSurveyPage = (req, res, next) => {
   let id = req.params.id;
-  let data = res.body.data;
+  let data = req.body.data;
+  
   let updatedSurvey = Survey({
-    "_id": id,
+    _id: id,
     "author": data.author,
     "surveyName": data.surveyName,
     "startDate": data.startDate,
-    "closeDate": data.closingDate,
+    "closeDate": data.closeDate,
     "questions": data.questions,
   });
-  
-  Survey.upadteOne({_id: id}, updated, (err) => {
+
+  // Update the Survey By ID
+  Survey.updateOne({_id: id}, updatedSurvey, (err) => {
     if (err) {
       console.log(err);
-      res.end
-      (err);
+      res.status(404).json({
+        message: "An error occured while trying to update the survey.",
+      });
     } else {
-      res.json(updatedSurvey);
+      console.log("Survey Updated Successfully!");
+      res.json({success: true, message: 'The survey was updated successfully!'});
     }
   });
 };
 
-module.exports.processEditSurveyPage = (req, res, next) =>{
-  let id = req.params.id;
-
-  let editedSurvey = Survey({
-    "_id" : id,
-    "author": req.body.author,
-    "surveyName": req.body.surveyName,
-    "startDate": req.body.startDate,
-    "closeDate": req.body.closingDate,
-    "questions": req.body.questions,
-  });
-
-  Survey.updateOne({_id: id}, editedSurvey,(err)=>{
-    if(err)
-    {
-      console.log(err);
-      res.end(err);
-    }
-    else{
-      res.status(200).json({
-        msg: data,
-      });
-    }
-  });
-}
 
 //delete survey content
 module.exports.performDeleteSurvey = (req, res, next) => {

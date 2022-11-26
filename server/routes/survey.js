@@ -20,9 +20,6 @@ router.get("/", surveyController.displayActiveSurveysPage);
 /* Post create survey page. */
 router.post("/create-survey", authorized, surveyController.processCreateSurveyPage);
 
-/* Post edit survey page. */
-router.post("/edit/:id", authorized, surveyController.processEditSurveyPage);
-
 router.post("/login", surveyController.loginUser);
 
 router.get("/logout", surveyController.logoutUser);
@@ -31,7 +28,7 @@ router.get("/logout", surveyController.logoutUser);
 router.post("/register", surveyController.registerUser);
 
 // update survey
-router.put("/update-survey/:id", authorized, surveyController.updateSurvey);
+router.post("/update-survey/:id", authorized, surveyController.processEditSurveyPage);
 
 // read survey by id
 router.get("/read-survey/:id", authorized, surveyController.displayEditSurveyPage);
