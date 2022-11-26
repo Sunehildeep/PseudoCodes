@@ -4,54 +4,79 @@
     <div class="create-survey">
       <h3 class="survey-title">Create a new survey</h3>
       <div class="survey-options">
-        <label class="survey-titles" for="author" style="left: 6rem"
+        <label
+          class="survey-titles"
+          for="author"
+          style="left: 6rem; top: -1.5rem"
           >NAME:</label
         >
         <input
           formControlName="author"
           class="surveyInput"
           type="text"
-          style="top: 3.5rem; left: -6.2rem"
+          style="top: 2rem; left: -6.2rem"
         />
 
-        <label class="survey-titles" for="surveyName" style="left: -1rem"
+        <label
+          class="survey-titles"
+          for="surveyName"
+          style="left: -1rem; top: -1.5rem"
           >SURVEY NAME:</label
         >
         <input
           formControlName="surveyName"
           class="surveyInput"
           type="text"
-          style="top: 3.5rem; left: -14.5rem"
+          style="top: 2rem; left: -14.5rem"
         />
 
         <label
           class="survey-titles"
           for="startDate"
-          style="left: 6rem; top: 4.5rem"
+          style="left: 6rem; top: 3rem"
           >START DATE:</label
         >
         <input
           formControlName="startDate"
           class="surveyInput"
           type="text"
-          style="top: 7.5rem; left: -6.2rem"
+          style="top: 6rem; left: -6.2rem"
         />
 
         <label
           class="survey-titles"
           for="closingDate"
-          style="left: -1rem; top: 4.5rem"
+          style="left: -1rem; top: 3rem"
           >CLOSING DATE:</label
         >
         <input
           formControlName="closingDate"
           class="surveyInput"
           type="text"
-          style="top: 7.5rem; left: -14.5rem"
+          style="top: 6rem; left: -14.5rem"
         />
       </div>
+      <h3 style="font-size: 1.7rem; position: relative; top: 7.5rem">
+        Select Survey Type:
+      </h3>
 
-      <h3 style="font-size: 1.7rem; position: relative; top: 10rem">
+      <div class="survey-type">
+        <label style="padding-right: 3rem" for="t/f"
+          ><input
+            type="radio"
+            class="radio"
+            name="radio"
+            id="t/f"
+          />True/False</label
+        >
+
+        <label for="fib"
+          ><input type="radio" class="radio" name="radio" id="fib" />Fill in the
+          Blank</label
+        >
+      </div>
+
+      <h3 style="font-size: 1.7rem; position: relative; top: 9rem">
         Questions
       </h3>
       <div class="survey-questions">

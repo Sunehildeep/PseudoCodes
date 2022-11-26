@@ -2,11 +2,11 @@
 .create-survey {
   text-align: center;
   position: absolute;
-  top: 35rem;
+  top: 40rem;
   right: 50%;
   transform: translate(50%, -50%);
   width: 38%;
-  height: 90%;
+  height: 105%;
   background: #c7c7c7;
   border-radius: 40px;
   margin-bottom: 10rem;
@@ -43,13 +43,36 @@
   position: relative;
 }
 
+.survey-type {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 7.5rem;
+  font-size: 1.5rem;
+  clear: none;
+}
+
+.survey-type label {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 1em 0px 8px;
+}
+.survey-type input[type="radio"] {
+  float: left;
+  clear: none;
+  height: 2em;
+  width: 2em;
+  accent-color: grey;
+}
+
 .survey-questions {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 10rem;
+  top: 9rem;
 }
 
 .survey-questions input {
