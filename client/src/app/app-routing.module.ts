@@ -7,7 +7,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import {CreateSurveyComponent} from "./pages/create-survey/create-survey.component";
 import {LoginComponent} from "./pages/login/login.component";
 import {UpdateSurveyComponent} from "./pages/update-survey/update-survey.component";
-
+import { TakeSurveyComponent } from "./pages/take-survey/take-survey.component";
 
 
 const routes: Routes = [
@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'update-survey', component: UpdateSurveyComponent },
   { path: 'login', component: LoginComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'take-survey', component: TakeSurveyComponent}
 ];
 
 @NgModule({

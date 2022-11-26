@@ -25,7 +25,7 @@
         <td>{{ survey.startDate }}</td>
         <td>{{ survey.closeDate }}</td>
         <td>
-          <a class="survey-button" href="{{ survey._id }}">Take Survey</a>
+          <a class="survey-button" href="take-survey" (click)="saveId(survey._id, i)">Take Survey</a>
         </td>
         <td>
           <!--{{ survey._id }} -->
