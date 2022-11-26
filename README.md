@@ -1,6 +1,9 @@
 # PseudoCodes
 Group Project For COMP229
 
+## Dependencies
+#### MEAN stack (MongoDB, ExpressJS, Angular, NodeJS)
+
 ## Instructions
 #### 1) Clone the repo by entering `git clone Sunehildeep/PseudoCodes`
 #### 2) Enter the directory by typing `cd PseudoCodes`
