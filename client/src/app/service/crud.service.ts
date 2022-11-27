@@ -48,7 +48,7 @@ export class CrudService {
   CreateSurvey(data: Survey): Observable<any> {
     this.loadToken();
     let API_URL = `${this.REST_API}/create-survey`;
-    return this.httpClient.post(API_URL, data)
+    return this.httpClient.post(API_URL, data, { headers: this.httpHeaders })
       .pipe(
         retry(2),
         catchError(this.handleError)

@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 export class CreateSurveyComponent implements OnInit {
 
   surveyForm: FormGroup;
+  questions: any = [];
+
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
@@ -23,7 +25,11 @@ export class CreateSurveyComponent implements OnInit {
       closingDate: [''],
       title: [''],
       surveyName: [''],
-      questions: [''],
+      question0: [''],
+      question1: [''],
+      question2: [''],
+      question3: [''],
+      question4: ['']
     });
   }
 
@@ -35,6 +41,14 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   onSubmit(): any {
+    let control = '';
+    for(var i = 0; i < 5; i++) {
+      control = 'question'+i;
+      this.questions[i] = this.surveyForm.value[control];
+    }
+    this.surveyForm.value.questions = this.questions;
+    console.log(this.surveyForm.value.questions);
+
     this.crudService.CreateSurvey(this.surveyForm.value).subscribe(
       () => {
         console.log('Survey added successfully!');

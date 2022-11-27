@@ -8,6 +8,8 @@ let surveyController = require("../controllers/survey");
 
 function authorized(req, res, next) {
     passport.authenticate('jwt', function(err, user, info) {
+        console.log(user);
+        console.log(err);
         if (err || !user) return res.status(401).json({message: 'You are not authorized to perform this operation!'});
         req.user = user;
         next();
