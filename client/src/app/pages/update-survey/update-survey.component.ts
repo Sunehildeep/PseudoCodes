@@ -1,6 +1,6 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import { CrudService } from '../../service/crud.service';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
 let SurveyID = localStorage.getItem('id')
@@ -12,7 +12,7 @@ let SurveyID = localStorage.getItem('id')
 })
 export class UpdateSurveyComponent implements OnInit {
   Survey: any = [];
-
+  questions: any= [];
 
   surveyForm: FormGroup;
   constructor(
@@ -25,8 +25,7 @@ export class UpdateSurveyComponent implements OnInit {
       author: [''],
       startDate: [''],
       closeDate: [''],
-      surveyName: [''],
-      questions: [''],
+      surveyName: ['']
     });
   }
 
@@ -37,22 +36,36 @@ export class UpdateSurveyComponent implements OnInit {
     }
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
-        console.log(res.data.questions);
-        this.surveyForm.setValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate, surveyName: res.data.surveyName, questions: res.data.questions});
+        this.Survey = res.data.questions;
+        for(var i = 0; i < this.Survey.length; i++) {
+          console.log(this.Survey[i]);
+          this.surveyForm.addControl('question'+i, new FormControl(this.Survey[i]));
+        }
+        this.surveyForm.patchValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate, surveyName: res.data.surveyName});
       });
     }
   }
 
 
   onSubmit(): any {
+    
     // Check if form is filled out
-    if (this.surveyForm.value.author == '' || this.surveyForm.value.startDate == '' || this.surveyForm.value.closeDate == '' || this.surveyForm.value.title == '' || this.surveyForm.value.surveyName == '' || this.surveyForm.value.questions == '') {
+    if (this.surveyForm.value.author == '' || this.surveyForm.value.startDate == '' || this.surveyForm.value.closeDate == '' || this.surveyForm.value.title == '' || this.surveyForm.value.surveyName == '') {
       return alert("Please fill out all fields");
     }
-    console.log(this.surveyForm.value.questions);
+    // Create array of questions
+    let control = '';
+    for(var i = 0; i < this.Survey.length; i++) {
+      control = 'question'+i;
+      this.questions[i] = this.surveyForm.value[control];
+    }
+   
+    this.surveyForm.addControl('questions', new FormGroup(''));
+    this.surveyForm.value.questions = this.questions;
+    
     this.crudService.UpdateSurvey(SurveyID, this.surveyForm.value).subscribe(
       () => {
-        console.log('Survey added edited!');
+        console.log('Survey edited!');
         this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'));
       },
       (err) => {
