@@ -59,6 +59,7 @@ export class UpdateSurveyComponent implements OnInit {
       control = 'question'+i;
       this.questions[i] = this.surveyForm.value[control];
     }
+ 
    
     this.surveyForm.addControl('questions', new FormGroup(''));
     this.surveyForm.value.questions = this.questions;
