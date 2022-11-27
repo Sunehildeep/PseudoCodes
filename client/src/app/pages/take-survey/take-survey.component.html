@@ -12,11 +12,11 @@ make questions from take-survey.ts pass into a form on this .html -->
         Questions
       </h3>
 
-      <div class="take-survey">
-        <div class="take-survey" *ngFor="let question of Survey.questions; index as i">
+      <div class="survey-options">
+        <div class="survey-options" *ngFor="let question of Survey.questions; index as i">
 
-          <label for="question{{i}}">{{ question }} </label>
-          <input name="answer{{i}}" formControlName="answer{{i}}" type="text"/>
+          <label class="survey-questions" for="question{{i}}">{{ question }} </label>
+          <input class="survey-questions" name="answer{{i}}" formControlName="answer{{i}}" type="text"/>
         </div>
       </div>
 
