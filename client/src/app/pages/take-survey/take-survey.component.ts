@@ -1,6 +1,6 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import { CrudService } from '../../service/crud.service';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
 let SurveyID = localStorage.getItem('id')
@@ -31,11 +31,14 @@ export class TakeSurveyComponent implements OnInit {
     }
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
-        
-        this.Survey = res.data;
-        console.log(this.Survey.questions);
+        this.Survey = res.data.questions;
+       
+        for(var i = 0; i < this.Survey.length; i++) {
+          console.log(this.Survey[i]);
+          this.surveyForm.addControl('answer'+i, new FormControl(''));
+        }
         this.surveyName = res.data.surveyName;
-        //this.surveyForm.setParent({  questions: res.data.questions})
+        
       });
     }
   }
