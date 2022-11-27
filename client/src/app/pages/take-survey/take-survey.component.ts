@@ -12,9 +12,8 @@ let SurveyID = localStorage.getItem('id')
 })
 export class TakeSurveyComponent implements OnInit {
   Survey: any = [];
-
   surveyForm: FormGroup;
-
+  questions = this.Survey.questions;
   constructor( public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone, private crudService: CrudService)
 
     {
@@ -24,17 +23,20 @@ export class TakeSurveyComponent implements OnInit {
       });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
     if(sessionStorage.getItem('id_token') == null) {
       alert("Please login first");
       this.ngZone.run(() => this.router.navigateByUrl('/login'))
     }
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
-        console.log(res.data.questions);
-        this.surveyForm.setValue({surveyName: res.data.surveyName, questions: res.data.questions});
+        console.log(res.data.questions[0]);
+        this.surveyForm.setValue({surveyName: res.data.surveyName, questions: res.data.questions[0]});
+        //this.surveyForm.setParent({  questions: res.data.questions})
       });
     }
   }
+
 
 }

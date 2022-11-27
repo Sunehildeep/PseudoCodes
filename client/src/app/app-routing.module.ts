@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'update-survey', component: UpdateSurveyComponent },
   { path: 'login', component: LoginComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'take-survey', component: TakeSurveyComponent}
+  { path: 'take-survey', component: TakeSurveyComponent }
 ];
 
 @NgModule({
