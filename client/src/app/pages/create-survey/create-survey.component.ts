@@ -41,6 +41,7 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   onSubmit(): any {
+
     let control = '';
     for(var i = 0; i < 5; i++) {
       control = 'question'+i;

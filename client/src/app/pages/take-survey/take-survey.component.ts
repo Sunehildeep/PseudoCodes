@@ -13,13 +13,13 @@ let SurveyID = localStorage.getItem('id')
 export class TakeSurveyComponent implements OnInit {
   Survey: any = [];
   surveyForm: FormGroup;
+  surveyName: String = '';
 
   constructor( public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone, private crudService: CrudService)
 
     {
       this.surveyForm = this.formBuilder.group({
-        surveyName: [''],
-        questions: [''],
+        answers: ['']
       });
   }
 
@@ -31,9 +31,10 @@ export class TakeSurveyComponent implements OnInit {
     }
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
-        console.log(res.data.questions[0]);
+        
         this.Survey = res.data;
-        this.surveyForm.setValue({surveyName: res.data.surveyName, questions: res.data.questions[0]});
+        console.log(this.Survey.questions);
+        this.surveyName = res.data.surveyName;
         //this.surveyForm.setParent({  questions: res.data.questions})
       });
     }
