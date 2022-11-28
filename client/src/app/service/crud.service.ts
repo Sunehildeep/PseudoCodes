@@ -17,7 +17,7 @@ import { FormGroup } from '@angular/forms';
 export class CrudService {
   // Node/Express API
   REST_API: string = 'http://localhost:3000/api';
-  
+
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
@@ -42,11 +42,13 @@ export class CrudService {
       )
   }
 
+
+
   // Create a new survey
   CreateSurvey(data: Survey): Observable<any> {
     this.loadToken();
     let API_URL = `${this.REST_API}/create-survey`;
-    return this.httpClient.post(API_URL, data)
+    return this.httpClient.post(API_URL, data, { headers: this.httpHeaders })
       .pipe(
         retry(2),
         catchError(this.handleError)

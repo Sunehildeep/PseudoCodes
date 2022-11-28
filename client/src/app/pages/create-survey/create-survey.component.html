@@ -67,11 +67,14 @@
             class="radio"
             name="radio"
             id="t/f"
+            checked="checked"
+            value="Tf"
+            (click)="tfClick()"
           />True/False</label
         >
 
         <label for="fib"
-          ><input type="radio" class="radio" name="radio" id="fib" />Fill in the
+          ><input type="radio" class="radio" name="radio" id="fib" (click)="fibClick()" value="Fib"/>Fill in the
           Blank</label
         >
       </div>
@@ -82,27 +85,27 @@
       <div class="survey-questions">
         <input
           type="text"
-          formControlName="questions"
+          formControlName="question0"
           placeholder="Question 1"
         />
         <input
           type="text"
-          formControlName="questions"
+          formControlName="question1"
           placeholder="Question 2"
         />
         <input
           type="text"
-          formControlName="questions"
+          formControlName="question2"
           placeholder="Question 3"
         />
         <input
           type="text"
-          formControlName="questions"
+          formControlName="question3"
           placeholder="Question 4"
         />
         <input
           type="text"
-          formControlName="questions"
+          formControlName="question4"
           placeholder="Question 5"
         />
       </div>

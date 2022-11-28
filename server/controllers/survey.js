@@ -105,6 +105,7 @@ module.exports.displayEditSurveyPage = (req, res, next) => {
       console.log(err);
       res.end(err);
     } else {
+      console.log(surveyToEdit);
       res.json({data: surveyToEdit});
     }
   });

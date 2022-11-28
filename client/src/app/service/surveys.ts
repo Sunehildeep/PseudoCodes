@@ -5,5 +5,6 @@ export class Survey {
   surveyName!: String;
   startDate!: String;
   endDate!: String;
+  surveyType!: String;
 }
 

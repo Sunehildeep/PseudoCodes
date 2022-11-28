@@ -4,7 +4,7 @@
 <main>
   <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
     <div class="update-survey">
-      <h3 class="survey-title">Edit your survey</h3>
+      <h3 class="survey-title">Edit the survey</h3>
       <div  class="survey-options">
         <label class="survey-titles" for="author" style="left: 6rem"
         >NAME:</label
@@ -54,35 +54,31 @@
         />
       </div>
 
+      <div class="survey-type">
+        <label style="padding-right: 3rem" for="t/f">
+          <input ng-value="isButtonChecked"
+                 (click)="tfClick()"
+          for="surveyType" type="radio" class="radio" name="radio" id="t/f" value="TF" checked="checked"/>
+          True/False</label>
+
+        <label for="fib"
+               (click)="fibClick()"
+        ><input type="radio" class="radio" name="radio" id="fib" value="MQC" />
+          Fill in the Blank</label>
+      </div>
+
+
       <h3 style="font-size: 1.7rem; position: relative; top: 10rem">
         Questions
       </h3>
-      <div class="survey-questions">
+      <div class="survey-questions" *ngFor="let question of Survey; index as i">
         <input
           type="text"
-          formControlName="questions"
-          placeholder="Question 1"
+          formControlName="question{{i}}"
+          placeholder="Question {{ i+1}}"
+          value="{{question}}"
         />
-        <input
-          type="text"
-          formControlName="questions"
-          placeholder="Question 2"
-        />
-        <input
-          type="text"
-          formControlName="questions"
-          placeholder="Question 3"
-        />
-        <input
-          type="text"
-          formControlName="questions"
-          placeholder="Question 4"
-        />
-        <input
-          type="text"
-          formControlName="questions"
-          placeholder="Question 5"
-        />
+
       </div>
       <button class="submit" type="submit">Submit</button>
       <a href="/active-surveys" class="cancel">Cancel</a>
