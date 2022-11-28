@@ -15,6 +15,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { UpdateSurveyComponent } from './pages/update-survey/update-survey.component';
 import { TakeSurveyComponent } from './pages/take-survey/take-survey.component';
+import { MySurveysComponent } from './pages/my-surveys/my-surveys.component';
+import { ViewResponsesComponent } from './pages/view-responses/view-responses.component';
 
 
 
@@ -30,7 +32,9 @@ import { TakeSurveyComponent } from './pages/take-survey/take-survey.component';
     LoginComponent,
     RegisterComponent,
     UpdateSurveyComponent,
-    TakeSurveyComponent
+    TakeSurveyComponent,
+    MySurveysComponent,
+    ViewResponsesComponent
   ],
   imports: [
     BrowserModule,
