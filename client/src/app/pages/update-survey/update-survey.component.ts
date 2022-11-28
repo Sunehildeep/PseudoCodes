@@ -15,6 +15,7 @@ export class UpdateSurveyComponent implements OnInit {
   questions: any= [];
 
   surveyForm: FormGroup;
+
   constructor(
     public formBuilder: FormBuilder,
     private router: Router,
@@ -26,6 +27,7 @@ export class UpdateSurveyComponent implements OnInit {
       startDate: [''],
       closeDate: [''],
       surveyName: [''],
+      surveyType: ['TF'],
       questions: ['']
     });
   }
@@ -42,14 +44,22 @@ export class UpdateSurveyComponent implements OnInit {
           console.log(this.Survey[i]);
           this.surveyForm.addControl('question'+i, new FormControl(this.Survey[i]));
         }
-        this.surveyForm.patchValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate, surveyName: res.data.surveyName});
+        this.surveyForm.patchValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate,  surveyName: res.data.surveyName});
       });
     }
   }
 
 
+  tfClick(){
+    this.surveyForm.value.surveyType = "TF"
+  }
+
+  fibClick() {
+    this.surveyForm.value.surveyType = "FIB"
+  }
+
+
   onSubmit(): any {
-    
     // Check if form is filled out
     if (this.surveyForm.value.author == '' || this.surveyForm.value.startDate == '' || this.surveyForm.value.closeDate == '' || this.surveyForm.value.title == '' || this.surveyForm.value.surveyName == '') {
       return alert("Please fill out all fields");
@@ -62,7 +72,9 @@ export class UpdateSurveyComponent implements OnInit {
     }
 
     this.surveyForm.value.questions = this.questions;
-    
+
+
+
     this.crudService.UpdateSurvey(SurveyID, this.surveyForm.value).subscribe(
       () => {
         console.log('Survey edited!');

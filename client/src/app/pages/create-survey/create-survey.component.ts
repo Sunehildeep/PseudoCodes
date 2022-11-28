@@ -25,12 +25,21 @@ export class CreateSurveyComponent implements OnInit {
       closingDate: [''],
       title: [''],
       surveyName: [''],
+      surveyType: ['TF'],
       question0: [''],
       question1: [''],
       question2: [''],
       question3: [''],
       question4: ['']
     });
+  }
+
+  tfClick(){
+    this.surveyForm.value.surveyType = "TF"
+  }
+
+  fibClick() {
+    this.surveyForm.value.surveyType = "FIB"
   }
 
   ngOnInit(): void {

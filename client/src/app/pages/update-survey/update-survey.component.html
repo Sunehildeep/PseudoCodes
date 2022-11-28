@@ -54,6 +54,20 @@
         />
       </div>
 
+      <div class="survey-type">
+        <label style="padding-right: 3rem" for="t/f">
+          <input ng-value="isButtonChecked"
+                 (click)="tfClick()"
+          for="surveyType" type="radio" class="radio" name="radio" id="t/f" value="TF" checked="checked"/>
+          True/False</label>
+
+        <label for="fib"
+               (click)="fibClick()"
+        ><input type="radio" class="radio" name="radio" id="fib" value="MQC" />
+          Fill in the Blank</label>
+      </div>
+
+
       <h3 style="font-size: 1.7rem; position: relative; top: 10rem">
         Questions
       </h3>
@@ -64,7 +78,7 @@
           placeholder="Question {{ i+1}}"
           value="{{question}}"
         />
-        
+
       </div>
       <button class="submit" type="submit">Submit</button>
       <a href="/active-surveys" class="cancel">Cancel</a>

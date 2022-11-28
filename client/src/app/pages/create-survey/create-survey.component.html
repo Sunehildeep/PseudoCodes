@@ -67,11 +67,14 @@
             class="radio"
             name="radio"
             id="t/f"
+            checked="checked"
+            value="Tf"
+            (click)="tfClick()"
           />True/False</label
         >
 
         <label for="fib"
-          ><input type="radio" class="radio" name="radio" id="fib" />Fill in the
+          ><input type="radio" class="radio" name="radio" id="fib" (click)="fibClick()" value="Fib"/>Fill in the
           Blank</label
         >
       </div>
