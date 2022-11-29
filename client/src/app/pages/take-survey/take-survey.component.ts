@@ -27,14 +27,15 @@ export class TakeSurveyComponent implements OnInit {
       answer3: [''],
       answer4: [''],
       answer5: [''],
-      SurveyID: ['']
+      SurveyID: [''],
+      participant: [''],
     });
   }
 
   onSubmit() {
 
-    this.crudService.saveSurvey(this.SurveyID, this.surveyForm).subscribe(() => {
-        console.log('Survey Answers Saved successfully!');
+    this.crudService.saveSurvey(this.surveyForm.value).subscribe(() => {
+        console.log('Survey Survey_responses Saved successfully!');
         console.log(this.answers);
 
       },
