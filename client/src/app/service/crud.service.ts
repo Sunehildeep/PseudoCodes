@@ -32,18 +32,13 @@ export class CrudService {
     return this.httpClient.get(`${this.REST_API}`);
   }
 
-  saveSurvey(){
-    this.loadToken();
-    let API_URL = 'this.httpClient.post.(this.REST_API, Survey)';
-    return API_URL;
 
-  }
 
-  /*saveSurvey(id: any, surveyForm: any): Observable<any> {
+  saveSurvey(id: any, surveyForm: any): Observable<any> {
     this.loadToken();
     let API_URL = `${this.REST_API}/survey_responses/${id}`;
     return this.httpClient.post(API_URL, { headers: this.httpHeaders });
-  }*/
+  }
 
   // Get a survey by ID
   GetSurvey(id: any): Observable<any> {

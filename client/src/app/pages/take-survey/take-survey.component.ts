@@ -31,9 +31,9 @@ export class TakeSurveyComponent implements OnInit {
     });
   }
 
-  /*onSubmit(): any {
+  onSubmit() {
 
-    this.crudService.saveSurvey().subscribe(() => {
+    this.crudService.saveSurvey(this.SurveyID, this.surveyForm).subscribe(() => {
         console.log('Survey Answers Saved successfully!');
         console.log(this.answers);
 
@@ -42,7 +42,7 @@ export class TakeSurveyComponent implements OnInit {
         console.log(err);
       }
     );
-  }*/
+  }
   ngOnInit(): void
   {
     if(sessionStorage.getItem('id_token') == null) {
@@ -53,7 +53,7 @@ export class TakeSurveyComponent implements OnInit {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
         this.Survey = res.data.questions;
 
-        for(var i = 0; i < this.Survey.length; i++) {
+        for(let i = 0; i < this.Survey.length; i++) {
           console.log(this.Survey[i]);
           this.surveyForm.addControl('answer'+i, new FormControl(''));
         }
