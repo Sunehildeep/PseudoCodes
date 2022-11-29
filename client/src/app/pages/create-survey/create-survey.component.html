@@ -3,33 +3,22 @@
   <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
     <div class="create-survey">
       <h3 class="survey-title">Create a new survey</h3>
-      <div class="survey-options">
-        <label
-          class="survey-titles"
-          for="author"
-          style="left: 6rem; top: -1.5rem"
-          >NAME:</label
-        >
-        <input
-          formControlName="author"
-          class="surveyInput"
-          type="text"
-          style="top: 2rem; left: -6.2rem"
-        />
 
+        <div class="survey-name">
         <label
-          class="survey-titles"
+          class="survey-titles1"
           for="surveyName"
-          style="left: -1rem; top: -1.5rem"
+          style="left: 15rem; top: 1.5rem"
           >SURVEY NAME:</label
         >
         <input
           formControlName="surveyName"
-          class="surveyInput"
+          class="surveyInput1"
           type="text"
-          style="top: 2rem; left: -14.5rem"
+          style="top: 2rem; left: -1.8rem"
         />
-
+        </div>
+        <div class="survey-options">
         <label
           class="survey-titles"
           for="startDate"

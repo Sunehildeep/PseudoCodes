@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import { CrudService } from '../../service/crud.service';
+import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
+
+let author: string = sessionStorage.getItem('displayName') || '';
+console.log(author)
 
 @Component({
-  selector: 'app-active-surveys',
+  selector: 'app-my-surveys',
   templateUrl: './my-surveys.component.html',
   styleUrls: ['./my-surveys.component.css'],
 })
@@ -12,10 +17,15 @@ export class MySurveysComponent implements OnInit {
   constructor(private crudService: CrudService) {}
 
   ngOnInit(): void {
-    this.crudService.GetSurveys().subscribe((res) => {
-      this.Surveys = res;
-      console.log(this.Surveys);
-    });
+    this.crudService.GetMySurveys(author).subscribe(
+      (res) => {
+        this.Surveys = res.data;
+        console.log(this.Surveys);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   saveId(id:any, i: any) {

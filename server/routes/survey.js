@@ -35,6 +35,9 @@ router.post("/update-survey/:id", authorized, surveyController.processEditSurvey
 // read survey by id
 router.get("/read-survey/:id", authorized, surveyController.displayEditSurveyPage);
 
+// read survey by author
+router.get("/read-my-surveys/:author", authorized, surveyController.displayMySurveyPage);
+
 // Delete Survey
 router.delete("/delete-survey/:id", authorized, surveyController.performDeleteSurvey);
 

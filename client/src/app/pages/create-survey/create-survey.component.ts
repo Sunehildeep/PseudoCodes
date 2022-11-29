@@ -3,11 +3,15 @@ import { CrudService } from '../../service/crud.service';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 
+let author: string = sessionStorage.getItem('displayName') || '';
+
 @Component({
   selector: 'app-create-survey',
   templateUrl: './create-survey.component.html',
   styleUrls: ['./create-survey.component.css']
 })
+
+
 export class CreateSurveyComponent implements OnInit {
 
   surveyForm: FormGroup;
@@ -20,7 +24,7 @@ export class CreateSurveyComponent implements OnInit {
     private crudService: CrudService
   ) {
     this.surveyForm = this.formBuilder.group({
-      author: [''],
+      author: [author],
       startDate: [''],
       closingDate: [''],
       title: [''],
@@ -46,6 +50,7 @@ export class CreateSurveyComponent implements OnInit {
     if(sessionStorage.getItem('id_token') == null) {
       alert("Please login first");
       this.ngZone.run(() => this.router.navigateByUrl('/login'))
+      this.surveyForm.value.author = author;
     }
   }
 
