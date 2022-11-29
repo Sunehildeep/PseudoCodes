@@ -9,6 +9,7 @@ let jwt = require('jsonwebtoken');
 let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User;
+let survey_responses = require("../models/survey_responses");
 //add survey content
 module.exports.displayActiveSurveysPage = (req, res, next) => {
   Survey.find((err, surveyList) => {
@@ -170,6 +171,46 @@ module.exports.performDeleteSurvey = (req, res, next) => {
   });
 };
 
+module.exports.processCreateResponses = (req, res, next) => {
+  
+  
+  let newResponses = survey_responses({
+      "surveyID": req.body.surveyID,
+      "ans1": req.body.answer1,
+      "ans2": req.body.answer2,
+      "ans3": req.body.answer3,
+      "ans4": req.body.answer4,
+      "ans5": req.body.answer5,
+      "participant": req.body.participant,   
+  });
+
+  console.log(newResponses);
+
+  survey_responses.create(newResponses, (err, survey_responses) => {
+      if (err) {
+          console.log(err);
+          res.end(err);
+      } else {
+          res.status(200).json({success: true, message: "Survey responses inserted."});
+      }
+  });
+};
+
+module.exports.displayMyResponsePage = (req, res, next) => {
+  let id = req.params.surveyID;
+  console.log(id);
+  Survey.find( {surveyID: id} ,(err, myResponseList) => {
+      if (err) {
+          console.log(err);
+          res.end(err);
+      } else {
+          console.log(myResponseList);
+          res.status(200).json({data: myResponseList});
+      }
+  });
+};
+
+
 //register user
 module.exports.registerUser = (req, res, next) => {
   let newUser = new User({
@@ -200,3 +241,4 @@ module.exports.registerUser = (req, res, next) => {
 
 
 }
+

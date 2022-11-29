@@ -41,5 +41,10 @@ router.get("/read-my-surveys/:author", authorized, surveyController.displayMySur
 // Delete Survey
 router.delete("/delete-survey/:id", authorized, surveyController.performDeleteSurvey);
 
+// Read My Surveys
+router.get("/read-my-surveys/:id", authorized, surveyController.displayMyResponsePage);
+
+// Save Responses
+router.post("/survey_responses", authorized, surveyController.processCreateResponses);
 
 module.exports = router;

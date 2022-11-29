@@ -4,7 +4,6 @@ let router = express.Router();
 let passport = require("passport");
 let jwt = require('jsonwebtoken');
 let surveyResponses = require("../controllers/survey_responses");
-const surveyController = require("../controllers/survey");
 
 function authorized(req, res, next) {
     passport.authenticate('jwt', function(err, user, info) {

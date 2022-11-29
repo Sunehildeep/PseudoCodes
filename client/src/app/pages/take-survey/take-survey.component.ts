@@ -14,9 +14,7 @@ export class TakeSurveyComponent implements OnInit {
   Survey: any = [];
   surveyForm: FormGroup;
   surveyName: String = '';
-  answers: any = [];
-  SurveyID: any = [];
-
+ 
 
   constructor( public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone, private crudService: CrudService)
 
@@ -27,17 +25,17 @@ export class TakeSurveyComponent implements OnInit {
       answer3: [''],
       answer4: [''],
       answer5: [''],
-      SurveyID: [''],
-      participant: [''],
+      surveyID: SurveyID,
+      participant: sessionStorage.getItem('displayName'),
     });
   }
 
   onSubmit() {
-
+    console.log(this.surveyForm.value);
     this.crudService.saveSurvey(this.surveyForm.value).subscribe(() => {
         console.log('Survey Survey_responses Saved successfully!');
-        console.log(this.answers);
-
+        alert("Your responses were recorded successfully.");
+        this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'))
       },
       (err: any) => {
         console.log(err);
@@ -53,11 +51,8 @@ export class TakeSurveyComponent implements OnInit {
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
         this.Survey = res.data.questions;
-
-        for(let i = 0; i < this.Survey.length; i++) {
-          console.log(this.Survey[i]);
-          this.surveyForm.addControl('answer'+i, new FormControl(''));
-        }
+        this.surveyForm.value.surveyID = res.data._id;
+  
         this.surveyName = res.data.surveyName;
 
       });

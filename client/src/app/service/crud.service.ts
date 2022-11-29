@@ -34,7 +34,7 @@ export class CrudService {
 
 
   // Create a new response
-  saveSurvey(data: survey_responses): Observable<any> {
+  saveSurvey(data: any): Observable<any> {
     this.loadToken();
     let API_URL = `${this.REST_API}/survey_responses/`;
     return this.httpClient.post(API_URL, data, { headers: this.httpHeaders })
