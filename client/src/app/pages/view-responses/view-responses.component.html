@@ -1,1 +1,27 @@
-<p>view-responses works!</p>
+<!-- View Response Section -->
+<main>
+  <table class="view-responses">
+    <thead>
+    <tr>
+      <th>Participant</th>
+      <th>Answer 1</th>
+      <th>Answer 2</th>
+      <th>Answer 3</th>
+      <th>Answer 4</th>
+      <th>Answer 5</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let response of answers; let i = index" >
+      <td ></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>{{response.ans5}}</td>
+    </tr>
+    </tbody>
+  </table>
+</main>
