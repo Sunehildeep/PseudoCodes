@@ -69,7 +69,7 @@ export class CrudService {
 
   getResponses(id: any): Observable<any> {
     this.loadToken();
-    let API_URL = `${this.REST_API}/view-responses/${id}`;
+    let API_URL = `${this.REST_API}/read-my-responses/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders })
       .pipe(
         retry(2),
