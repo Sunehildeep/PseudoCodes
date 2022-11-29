@@ -5,52 +5,46 @@
   <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
     <div class="update-survey">
       <h3 class="survey-title">Edit the survey</h3>
-      <div  class="survey-options">
-        <label class="survey-titles" for="author" style="left: 6rem"
-        >NAME:</label
-        >
-        <input
-          formControlName="author"
-          class="surveyInput"
-          type="text"
-          style="top: 3.5rem; left: -6.2rem"
-          value="12345"
-        />
 
-        <label class="survey-titles" for="surveyName" style="left: -1rem"
+      <div class="survey-name">
+        <label
+          class="survey-titles1"
+          for="surveyName"
+          style="left: 15rem; top: 1.5rem"
         >SURVEY NAME:</label
         >
         <input
           formControlName="surveyName"
-          class="surveyInput"
+          class="surveyInput1"
           type="text"
-          style="top: 3.5rem; left: -14.5rem"
+          style="top: 2rem; left: -1.8rem"
         />
-
+      </div>
+      <div class="survey-options">
         <label
           class="survey-titles"
           for="startDate"
-          style="left: 6rem; top: 4.5rem"
+          style="left: 6rem; top: 3rem"
         >START DATE:</label
         >
         <input
           formControlName="startDate"
           class="surveyInput"
           type="text"
-          style="top: 7.5rem; left: -6.2rem"
+          style="top: 6rem; left: -6.2rem"
         />
 
         <label
           class="survey-titles"
           for="closeDate"
-          style="left: -1rem; top: 4.5rem"
+          style="left: -1rem; top: 3rem"
         >CLOSING DATE:</label
         >
         <input
           formControlName="closeDate"
           class="surveyInput"
           type="text"
-          style="top: 7.5rem; left: -14.5rem"
+          style="top: 6rem; left: -14.5rem"
         />
       </div>
 
