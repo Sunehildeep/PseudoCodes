@@ -1,4 +1,4 @@
-export class Answers {
+export class survey_responses {
   _id!: String;
   surveyID!: String;
   ans1!: String;

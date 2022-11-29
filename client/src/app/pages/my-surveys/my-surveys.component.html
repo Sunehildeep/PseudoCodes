@@ -1,4 +1,4 @@
-<!-- Active Surveys Section -->
+<!-- My Surveys Section -->
 <main>
   <table class="my-surveys">
     <thead>
@@ -20,7 +20,7 @@
       <td>{{ survey.closeDate }}</td>
 
       <td>
-        <a class="view-button"  (click)="saveId(survey._id, i)">View</a>
+        <a class="view-button" href="/view-responses" (click)="saveId(survey._id, i)">View</a>
       </td>
 
     </tr>
