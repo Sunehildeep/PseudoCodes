@@ -14,7 +14,5 @@ function authorized(req, res, next) {
         next();
     })(req, res, next);
 }
-router.get("/read-my-surveys/:id", authorized, surveyResponses.displayMyResponsePage);
-router.post("/survey_responses", authorized, surveyResponses.processCreateResponses);
 
 module.exports = router;

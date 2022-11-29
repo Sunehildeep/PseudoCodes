@@ -4,6 +4,7 @@ let router = express.Router();
 let passport = require("passport");
 let jwt = require('jsonwebtoken');
 let surveyController = require("../controllers/survey");
+const surveyResponses = require("../controllers/survey_responses");
 
 
 function authorized(req, res, next) {
@@ -41,10 +42,18 @@ router.get("/read-my-surveys/:author", authorized, surveyController.displayMySur
 // Delete Survey
 router.delete("/delete-survey/:id", authorized, surveyController.performDeleteSurvey);
 
+<<<<<<< HEAD
 // Read My Surveys
 router.get("/read-my-surveys/:id", authorized, surveyController.displayMyResponsePage);
 
 // Save Responses
 router.post("/survey_responses", authorized, surveyController.processCreateResponses);
+=======
+// Survey responses
+router.get("/read-my-surveys/:id", authorized, surveyResponses.displayMyResponsePage);
+
+router.post("/survey_responses", authorized, surveyResponses.processCreateResponses);
+
+>>>>>>> d0c9059dc0f0e24304973016529c144c5e48334e
 
 module.exports = router;
