@@ -9,6 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { Survey } from './surveys';
 import { User } from './users';
 import { FormGroup } from '@angular/forms';
+import { Answers } from "./Answers";
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,19 @@ export class CrudService {
   GetSurveys() {
     return this.httpClient.get(`${this.REST_API}`);
   }
+
+  saveSurvey(){
+    this.loadToken();
+    let API_URL = 'this.httpClient.post.(this.REST_API, Survey)';
+    return API_URL;
+
+  }
+
+  /*saveSurvey(id: any, surveyForm: any): Observable<any> {
+    this.loadToken();
+    let API_URL = `${this.REST_API}/survey_responses/${id}`;
+    return this.httpClient.post(API_URL, { headers: this.httpHeaders });
+  }*/
 
   // Get a survey by ID
   GetSurvey(id: any): Observable<any> {
