@@ -17,10 +17,15 @@ export class MySurveysComponent implements OnInit {
   constructor(private crudService: CrudService) {}
 
   ngOnInit(): void {
-    this.crudService.GetMySurveys(author).subscribe((res) => {
-      this.Surveys = res;
-      console.log(this.Surveys);
-    });
+    this.crudService.GetMySurveys(author).subscribe(
+      (res) => {
+        this.Surveys = res.data;
+        console.log(this.Surveys);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   saveId(id:any, i: any) {
