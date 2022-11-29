@@ -42,6 +42,16 @@ export class CrudService {
       )
   }
 
+  // Get my surveys
+  GetMySurveys(author: any): Observable<any> {
+    this.loadToken();
+    let API_URL = `${this.REST_API}/read-my-surveys/${author}`;
+    return this.httpClient.get(API_URL, { headers: this.httpHeaders })
+      .pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+  }
 
 
   // Create a new survey

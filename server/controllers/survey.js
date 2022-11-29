@@ -111,6 +111,20 @@ module.exports.displayEditSurveyPage = (req, res, next) => {
   });
 };
 
+module.exports.displayMySurveyPage = (req, res, next) => {
+  let author = req.params.displayName;
+
+  Survey.find( Survey.author = author ,(err, mySurveyList) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      console.log(mySurveyList);
+      res.json({data: mySurveyList});
+    }
+  });
+};
+
 
 //update survey content
 module.exports.processEditSurveyPage = (req, res, next) => {
