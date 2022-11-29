@@ -1,6 +1,6 @@
 
 <main>
-  <form [formGroup]="surveyForm">
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
     <div class="take-survey">
       <h1 class="survey-name">{{ surveyName }}</h1>
       <h3 style="font-size: 1.7rem; position: relative;">
