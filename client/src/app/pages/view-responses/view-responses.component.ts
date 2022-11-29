@@ -11,7 +11,6 @@ let SurveyID = localStorage.getItem('id')
   styleUrls: ['./view-responses.component.css']
 })
 export class ViewResponsesComponent implements OnInit {
-  Surveys: any;
   answers: any = [];
 
 

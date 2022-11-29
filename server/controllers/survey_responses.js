@@ -32,7 +32,7 @@ module.exports.processCreateResponses = (req, res, next) => {
 module.exports.displayMyResponsePage = (req, res, next) => {
     let id = req.params.surveyID;
     console.log(id);
-    Survey.find( {surveyID: id} ,(err, myResponseList) => {
+    survey_responses.find( {surveyID: id} ,(err, myResponseList) => {
         if (err) {
             console.log(err);
             res.end(err);

@@ -196,20 +196,6 @@ module.exports.processCreateResponses = (req, res, next) => {
   });
 };
 
-module.exports.displayMyResponsePage = (req, res, next) => {
-  let id = req.params.surveyID;
-  console.log(id);
-  Survey.find( {surveyID: id} ,(err, myResponseList) => {
-      if (err) {
-          console.log(err);
-          res.end(err);
-      } else {
-          console.log(myResponseList);
-          res.status(200).json({data: myResponseList});
-      }
-  });
-};
-
 
 //register user
 module.exports.registerUser = (req, res, next) => {

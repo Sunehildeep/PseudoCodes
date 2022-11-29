@@ -14,20 +14,33 @@ export class TakeSurveyComponent implements OnInit {
   Survey: any = [];
   surveyForm: FormGroup;
   surveyName: String = '';
- 
+
 
   constructor( public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone, private crudService: CrudService)
 
   {
+    function setName() {
+      if(sessionStorage.getItem('displayName')==null){
+        return("Anonymous")
+      }
+      else{
+        return sessionStorage.getItem('displayName')
+      }
+    }
+
     this.surveyForm = this.formBuilder.group({
       answer1: [''],
       answer2: [''],
       answer3: [''],
       answer4: [''],
       answer5: [''],
-      surveyID: SurveyID,
-      participant: sessionStorage.getItem('displayName'),
+      surveyID: [SurveyID],
+      participant: setName(),
     });
+  }
+
+  setName(){
+    sessionStorage.getItem('displayName')
   }
 
   onSubmit() {
@@ -52,7 +65,7 @@ export class TakeSurveyComponent implements OnInit {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
         this.Survey = res.data.questions;
         this.surveyForm.value.surveyID = res.data._id;
-  
+
         this.surveyName = res.data.surveyName;
 
       });
