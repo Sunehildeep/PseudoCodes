@@ -196,4 +196,7 @@ module.exports.registerUser = (req, res, next) => {
       return res.json({success: true, message: 'User Registered Successfully!'});
     }
   });
+
+
+
 }
