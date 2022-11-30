@@ -67,9 +67,9 @@ export class CrudService {
       )
   }
 
-  getResponses(id: any): Observable<any> {
+  getResponses(SurveyID: any): Observable<any> {
     this.loadToken();
-    let API_URL = `${this.REST_API}/read-my-responses/${id}`;
+    let API_URL = `${this.REST_API}/read-my-responses/${SurveyID}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders })
       .pipe(
         retry(2),

@@ -18,6 +18,7 @@ export class ViewResponsesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(SurveyID)
     this.crudService.getResponses(SurveyID).subscribe(
       (res) => {
         this.answers = res.data;
