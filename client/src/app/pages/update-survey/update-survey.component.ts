@@ -56,8 +56,8 @@ export class UpdateSurveyComponent implements OnInit {
     this.surveyForm.value.surveyType = "TF";
   }
 
-  fibClick() {
-    this.surveyForm.value.surveyType = "FIB";
+  shortAClick() {
+    this.surveyForm.value.surveyType = "SA"
   }
 
 
