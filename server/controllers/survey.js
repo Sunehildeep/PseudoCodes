@@ -204,10 +204,15 @@ module.exports.displayMyResponsePage = (req, res, next) => {
   survey_responses.find( {surveyID: id} ,(err, myResponseList) => {
     if (err) {
       console.log(err);
-      res.end(err);
+      res.status(404).json({message: err});
     } else {
-      console.log(myResponseList);
-      res.status(200).json({data: myResponseList});
+      // Check if result is empty
+      if (myResponseList.length == 0) {
+        res.status(404).json({message: "No responses found."});
+      } else {
+        console.log(myResponseList);
+        res.status(200).json({data: myResponseList});
+      }
     }
   });
 };
@@ -235,11 +240,8 @@ module.exports.registerUser = (req, res, next) => {
       // if no error exists, then registration is successful
 
       // redirect the user
-      return res.json({success: true, message: 'User Registered Successfully!'});
+      return res.status(200).json({success: true, message: 'User Registered Successfully!'});
     }
   });
-
-
-
-}
+};
 
