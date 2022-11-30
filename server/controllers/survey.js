@@ -119,10 +119,13 @@ module.exports.displayMySurveyPage = (req, res, next) => {
   Survey.find( {author: author} ,(err, mySurveyList) => {
     if (err) {
       console.log(err);
-      res.end(err);
+      res.end(err).json({message: "An error occured while trying to get the surveys."});
     } else {
       console.log(mySurveyList);
-      res.status(200).json({data: mySurveyList});
+      if(mySurveyList.length == 0){
+        res.status(404).json({message: "No surveys found."});
+      } 
+      else res.status(200).json({data: mySurveyList});
     }
   });
 };

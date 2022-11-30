@@ -14,10 +14,15 @@ console.log(author)
 export class MySurveysComponent implements OnInit {
   Surveys: any = [];
 
-  constructor(private crudService: CrudService) {}
+  constructor(private crudService: CrudService, private ngZone: NgZone,private router: Router) {}
 
   ngOnInit(): void {
-    this.crudService.GetMySurveys(author).subscribe(
+    if(sessionStorage.getItem('id_token') == null) {
+      alert("Please login first");
+      this.ngZone.run(() => this.router.navigateByUrl('/login'))
+    }
+    else {
+      this.crudService.GetMySurveys(author).subscribe(
       (res) => {
         this.Surveys = res.data;
         console.log(this.Surveys);
@@ -26,6 +31,7 @@ export class MySurveysComponent implements OnInit {
         console.log(err);
       }
     );
+    }
   }
 
   saveId(id:any, i: any) {
