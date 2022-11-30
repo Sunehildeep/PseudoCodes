@@ -3,7 +3,7 @@ import {FormBuilder, FormControl} from "@angular/forms";
 import {Router} from "@angular/router";
 import {CrudService} from "../../service/crud.service";
 
-let SurveyID = localStorage.getItem('id')
+let id = localStorage.getItem('id')
 
 @Component({
   selector: 'app-view-responses',
@@ -18,8 +18,8 @@ export class ViewResponsesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(SurveyID)
-    this.crudService.getResponses(SurveyID).subscribe(
+    console.log(id)
+    this.crudService.getResponses(id).subscribe(
       (res) => {
         this.answers = res.data;
         console.log(this.answers);

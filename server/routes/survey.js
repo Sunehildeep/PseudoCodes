@@ -41,7 +41,7 @@ router.get("/read-my-surveys/:author", authorized, surveyController.displayMySur
 // Delete Survey
 router.delete("/delete-survey/:id", authorized, surveyController.performDeleteSurvey);
 
-// Read My Surveys
+// Read My Responses
 router.get("/read-my-responses/:id", authorized, surveyController.displayMyResponsePage);
 
 // Save Responses

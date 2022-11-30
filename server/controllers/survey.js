@@ -198,7 +198,8 @@ module.exports.processCreateResponses = (req, res, next) => {
 
 
 module.exports.displayMyResponsePage = (req, res, next) => {
-  let id = req.params.surveyID;
+  let id = req.params.id;
+
   console.log(id + "Hello");
   survey_responses.find( {surveyID: id} ,(err, myResponseList) => {
     if (err) {
