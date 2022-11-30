@@ -14,6 +14,7 @@ export class TakeSurveyComponent implements OnInit {
   Survey: any = [];
   surveyForm: FormGroup;
   surveyName: String = '';
+  surveyType: String = '';
 
 
   constructor( public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone, private crudService: CrudService)
@@ -65,9 +66,8 @@ export class TakeSurveyComponent implements OnInit {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
         this.Survey = res.data.questions;
         this.surveyForm.value.surveyID = res.data._id;
-
-        this.surveyName = res.data.surveyName;
-
+        this.surveyType = res.data.surveyType;
+       
       });
     }
   }

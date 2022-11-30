@@ -8,8 +8,21 @@
       </h3>
 
       <div class="survey-questions" style="top: 4rem;" *ngFor="let question of Survey; index as i">
-          <h4 id="question{{i+1}}">Q {{i+1}})  {{ question }} </h4>
-          <input name="answer{{i+1}}" formControlName="answer{{i+1}}" type="text"/>
+        <h4 id="question{{i+1}}">Q {{i+1}})  {{ question }} </h4>
+        <div *ngIf="this.surveyType == 'SA'; then SA else TF"></div>
+          <ng-template #SA>
+            <input
+              type="text"
+              formControlName="answer{{i+1}}"
+              placeholder="Answer {{ i+1}}"
+              value="{{question}}"
+            />
+          </ng-template>
+          <ng-template #TF>
+            <input type="radio" name="answer{{i+1}}" formControlName="answer{{i+1}}" value="True" /> True
+            <input type="radio" name="answer{{i+1}}" formControlName="answer{{i+1}}" value="False" /> False
+          </ng-template>
+          
       </div>
 
       <button class="submit" type="submit">Submit</button>
