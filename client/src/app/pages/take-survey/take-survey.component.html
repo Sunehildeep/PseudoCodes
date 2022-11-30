@@ -7,7 +7,7 @@
         Questions
       </h3>
 
-      <div class="survey-questions" style="top: 4rem;" *ngFor="let question of Survey; index as i">
+      <div class="survey-questions" style="top: 1rem;" *ngFor="let question of Survey; index as i">
         <h4 id="question{{i+1}}">Q {{i+1}})  {{ question }} </h4>
         <div *ngIf="this.surveyType == 'SA'; then SA else TF"></div>
           <ng-template #SA>
@@ -19,11 +19,12 @@
             />
           </ng-template>
 
-              <ng-template #TF>
-                
-                <input class="radio" type="radio" name="answer{{i+1}}" formControlName="answer{{i+1}}" value="True" /> True
-                <input class="radio" type="radio" name="answer{{i+1}}" formControlName="answer{{i+1}}" value="False" /> False
-              </ng-template>
+          <ng-template #TF>
+            <input style="margin-right: 140px" class="radio" type="radio" name="answer{{i+1}}" formControlName="answer{{i+1}}" value="True" /> 
+            <label style="margin-right: 140px" for="true">True</label>
+            <input style="margin-left: 140px; margin-top: -54px" class="radio" type="radio" name="answer{{i+1}}" formControlName="answer{{i+1}}" value="False" /> 
+            <label for="false" style="margin-left: 140px">False</label>
+          </ng-template>
        
       </div>
 
