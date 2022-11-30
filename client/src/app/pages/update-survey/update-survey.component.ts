@@ -13,7 +13,7 @@ let SurveyID = localStorage.getItem('id')
 export class UpdateSurveyComponent implements OnInit {
   Survey: any = [];
   questions: any= [];
-
+  surveyType: any;
   surveyForm: FormGroup;
 
   constructor(
@@ -27,7 +27,7 @@ export class UpdateSurveyComponent implements OnInit {
       startDate: [''],
       closeDate: [''],
       surveyName: [''],
-      surveyType: ['TF'],
+      surveyType: [''],
       questions: ['']
     });
   }
@@ -40,22 +40,24 @@ export class UpdateSurveyComponent implements OnInit {
     else {
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
         this.Survey = res.data.questions;
+        console.log(res.data);
         for(var i = 0; i < this.Survey.length; i++) {
           console.log(this.Survey[i]);
           this.surveyForm.addControl('question'+i, new FormControl(this.Survey[i]));
         }
-        this.surveyForm.patchValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate,  surveyName: res.data.surveyName});
+        this.surveyForm.patchValue({author: res.data.author, startDate: res.data.startDate, closeDate: res.data.closeDate,  surveyName: res.data.surveyName, surveyType: res.data.surveyType});
+       
       });
     }
   }
 
 
   tfClick(){
-    this.surveyForm.value.surveyType = "TF"
+    this.surveyForm.value.surveyType = "TF";
   }
 
   fibClick() {
-    this.surveyForm.value.surveyType = "FIB"
+    this.surveyForm.value.surveyType = "FIB";
   }
 
 

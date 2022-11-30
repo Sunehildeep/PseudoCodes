@@ -52,12 +52,12 @@
         <label style="padding-right: 3rem" for="t/f">
           <input ng-value="isButtonChecked"
                  (click)="tfClick()"
-          for="surveyType" type="radio" class="radio" name="radio" id="t/f" value="TF" checked="checked"/>
+          for="surveyType" type="radio" [checked]="this.surveyForm.value.surveyType == 'TF' ? true : false" class="radio" name="radio" id="t/f" value="TF" checked="checked"/>
           True/False</label>
 
         <label for="fib"
                (click)="fibClick()"
-        ><input type="radio" class="radio" name="radio" id="fib" value="MQC" />
+        ><input type="radio" [checked]="this.surveyForm.value.surveyType == 'FIB' ? true : false" class="radio" name="radio" id="fib" value="MQC"  />
           Fill in the Blank</label>
       </div>
 

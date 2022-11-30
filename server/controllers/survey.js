@@ -84,6 +84,7 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
     "startDate": req.body.startDate,
     "closeDate": req.body.closingDate,
     "questions": req.body.questions,
+    "surveyType": req.body.surveyType,
   });
 
   Survey.create(newSurvey, (err, Survey) => {
@@ -139,6 +140,7 @@ module.exports.processEditSurveyPage = (req, res, next) => {
     "startDate": data.startDate,
     "closeDate": data.closeDate,
     "questions": data.questions,
+    "surveyType": data.surveyType,
   });
 
   // Update the Survey By ID
