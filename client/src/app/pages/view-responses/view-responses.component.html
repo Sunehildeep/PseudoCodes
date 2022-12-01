@@ -1,0 +1,27 @@
+<!-- View Responses Section -->
+<main>
+  <table class="view-responses">
+    <thead>
+    <tr>
+      <th>Participant</th>
+      <th>Answer 1</th>
+      <th>Answer 2</th>
+      <th>Answer 3</th>
+      <th>Answer 4</th>
+      <th>Answer 5</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let response of answers; let i = index" >
+      <td>{{response.participant}}</td>
+      <td>{{response.ans1}}</td>
+      <td>{{response.ans2}}</td>
+      <td>{{response.ans3}}</td>
+      <td>{{response.ans4}}</td>
+      <td>{{response.ans5}}</td>
+    </tr>
+    </tbody>
+  </table>
+</main>

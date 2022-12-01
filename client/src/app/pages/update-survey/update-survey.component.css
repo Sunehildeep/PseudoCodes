@@ -1,0 +1,141 @@
+/* Update Survey Section */
+.update-survey {
+  text-align: center;
+  position: absolute;
+  top: 40rem;
+  right: 50%;
+  transform: translate(50%, -50%);
+  width: 38%;
+  height: 105%;
+  background: #c7c7c7;
+  border-radius: 40px;
+  margin-bottom: 10rem;
+}
+
+.survey-title {
+  padding: 20px;
+  font-size: 1.7rem;
+}
+
+.survey-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.survey-options label {
+  position: relative;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column-reverse;
+  white-space: nowrap;
+}
+
+.surveyInput {
+  height: 35px;
+  width: 220px;
+  padding: 0 15px;
+  margin-top: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  position: relative;
+}
+
+.survey-name label  {
+  position: relative;
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.surveyInput1 {
+  height: 35px;
+  width: 220px;
+  padding: 0 15px;
+  margin-top: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  position: relative;
+}
+
+.survey-type {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 7.5rem;
+  font-size: 1.5rem;
+  clear: none;
+}
+
+.survey-type label {
+  float: left;
+  clear: none;
+  display: block;
+  padding: 0px 1em 0px 8px;
+}
+.survey-type input[type="radio"] {
+  float: left;
+  clear: none;
+  height: 2em;
+  width: 2em;
+  accent-color: grey;
+}
+
+.survey-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 9rem;
+}
+
+.survey-questions input {
+  width: 420px;
+  height: 35px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  outline: none;
+  margin-top: 8px;
+}
+
+.survey-questions input::placeholder {
+  color: #d3d3d3;
+}
+
+.submit {
+  background-color: #a8e890;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  margin: auto;
+  margin-right: 2rem;
+  position: relative;
+  bottom: -11rem;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel {
+  background-color: #a8e890;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  margin: auto;
+  position: relative;
+  bottom: -11rem;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}

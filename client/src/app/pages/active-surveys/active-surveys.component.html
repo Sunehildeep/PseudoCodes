@@ -1,0 +1,48 @@
+<!-- Active Surveys Section -->
+<main>
+  <table class="active-surveys">
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Survey Name</th>
+        <th>Start Date</th>
+        <th>Closing Date</th>
+        <th>Take Survey</th>
+        <th>
+          <a href="create-survey"
+            ><button class="survey-button">
+              <i class="fa-solid fa-plus"></i> Add
+            </button></a
+          >
+        </th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let survey of Surveys; let i = index">
+      <tr>
+        <td>{{ survey.author }}</td>
+        <td>{{ survey.surveyName }}</td>
+        <td>{{ survey.startDate }}</td>
+        <td>{{ survey.closeDate }}</td>
+        <td>
+          <a class="survey-button" href="take-survey" (click)="saveId(survey._id, i)">Take Survey</a>
+        </td>
+        <td>
+          <!--{{ survey._id }} -->
+          <a
+            class="survey-button"
+            style="margin-right: 1rem"
+            href="update-survey"
+            (click)="saveId(survey._id, i)"
+            ><button class="survey-button">
+              <i class="fa-solid fa-pencil"></i></button
+          ></a>
+          <a class="survey-button" (click)="deleteSurvey(survey._id, i)"
+            ><button class="survey-button">
+              <i class="fa-solid fa-trash"></i></button
+          ></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

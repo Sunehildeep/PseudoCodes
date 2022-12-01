@@ -1,0 +1,81 @@
+<!-- Create Survey Section -->
+
+
+<main>
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <div class="update-survey">
+      <h3 class="survey-title">Edit the survey</h3>
+
+      <div class="survey-name">
+        <label
+          class="survey-titles1"
+          for="surveyName"
+          style="left: 17rem; top: 1.5rem"
+        >SURVEY NAME:</label
+        >
+        <input
+          formControlName="surveyName"
+          class="surveyInput1"
+          type="text"
+          style="top: 2rem; left: 0.5rem"
+        />
+      </div>
+      <div class="survey-options">
+        <label
+          class="survey-titles"
+          for="startDate"
+          style="left: 6rem; top: 3rem"
+        >START DATE:</label
+        >
+        <input
+          formControlName="startDate"
+          class="surveyInput"
+          type="text"
+          style="top: 6rem; left: -6.2rem"
+        />
+
+        <label
+          class="survey-titles"
+          for="closeDate"
+          style="left: -1rem; top: 3rem"
+        >CLOSING DATE:</label
+        >
+        <input
+          formControlName="closeDate"
+          class="surveyInput"
+          type="text"
+          style="top: 6rem; left: -14.5rem"
+        />
+      </div>
+
+      <div class="survey-type">
+        <label style="padding-right: 3rem" for="t/f">
+          <input ng-value="isButtonChecked"
+                 (click)="tfClick()"
+          for="surveyType" type="radio" [checked]="this.surveyForm.value.surveyType == 'TF' ? true : false" class="radio" name="radio" id="t/f" value="TF" checked="checked"/>
+          True/False</label>
+
+        <label for="fib"
+               (click)="shortAClick()"
+        ><input type="radio" [checked]="this.surveyForm.value.surveyType == 'SA' ? true : false" class="radio" name="radio" id="shortAClick" value="SA"  />
+          Short Answer</label>
+      </div>
+
+
+      <h3 style="font-size: 1.7rem; position: relative; top: 10rem">
+        Questions
+      </h3>
+      <div class="survey-questions" *ngFor="let question of Survey; index as i">
+        <input
+          type="text"
+          formControlName="question{{i}}"
+          placeholder="Question {{ i+1}}"
+          value="{{question}}"
+        />
+
+      </div>
+      <button class="submit" type="submit">Submit</button>
+      <a href="/active-surveys" class="cancel">Cancel</a>
+    </div>
+  </form>
+</main>

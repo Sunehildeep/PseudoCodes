@@ -1,0 +1,22 @@
+
+<!-- Login Section -->
+<main>
+
+
+  <div class="container">
+    <div class="login">
+      <h3 class="project-name" style="padding: 20px; font-size: 2.5rem">
+        Surveylance
+      </h3>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label class="loginLabel" for="username" style="margin-top: 30px;">USERNAME:</label>
+        <input class="loginInput" for="username" formControlName="username" type="text" style="margin-bottom: 25px;">
+        <label class="loginLabel" for="password">PASSWORD:</label>
+        <input class="loginInput" for="password" formControlName="password" type="password" style="margin-bottom: 50px;" />
+        <button type="submit" class="nav-item nav-item-btn login">LOGIN</button>
+        <a href="/home" class="nav-item nav-item-btn">CANCEL</a>
+        <p id="registerLink" >Don't have an account? <a target="_blank" href="/register"  style="color: #425F57;">Create One</a> </p>
+      </form>
+    </div>
+  </div>
+</main>

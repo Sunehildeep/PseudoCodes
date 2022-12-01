@@ -141,6 +141,52 @@ nav.effect ul li a:hover:after {
   }
 }
 
+/* About Section */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  padding-right: 2rem;
+  padding-top: 1rem;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  color: white;
+  transform: rotateY(180deg);
+}
+.flipcards {
+  display: flex;
+  justify-content: center;
+  padding-top: 20rem;
+}
+
 /* Active Surveys Section */
 .active-surveys {
   text-align: center;
@@ -284,6 +330,7 @@ tr:last-child {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .cancel {
   background-color: #a8e890;
   color: white;
@@ -297,6 +344,7 @@ tr:last-child {
   border-radius: 4px;
   cursor: pointer;
 }
+
 /* Login Section */
 .container {
   text-align: center;
@@ -335,7 +383,13 @@ tr:last-child {
 
 #registerLink {
   position: relative;
-  top: 4rem;
+  top: 1rem;
+}
+
+.login {
+  margin-top: 3px;
+  cursor: pointer;
+  border: none;
 }
 
 /* Register Section */
@@ -372,6 +426,12 @@ tr:last-child {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   outline: none;
+}
+
+.sign-up {
+  margin-top: -10px;
+  cursor: pointer;
+  border: none;
 }
 
 /* Footer Section */
@@ -423,55 +483,9 @@ tr:last-child {
   }
 }
 
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-  padding-right: 2rem;
-  padding-top: 1rem;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; 
-  backface-visibility: hidden;
-}
-
-
-.flip-card-front {
-  
-  color: black;
-}
-
-.flip-card-back {
-  color: white;
-  transform: rotateY(180deg);
-}
-.flipcards{
-  display: flex;
-  justify-content: center;
-  padding-top: 20rem;
-}
-@media only screen and (max-width: 768px)
-{
-.flipcards  {
+@media only screen and (max-width: 768px) {
+  .flipcards {
     flex-direction: column;
     align-items: center;
-}
+  }
 }

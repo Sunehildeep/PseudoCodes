@@ -1,0 +1,21 @@
+<!-- NavBar Section -->
+<nav class="effect">
+    <div class="logo-name">
+        <img src="/assets/images/PseudoCodeLogo-unscreen.gif" width="150"> 
+        <a href="/home" class="project-name" style="padding: 20px">Surveylance</a>
+    </div>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <ul class="nav-menu">
+        <li><a href="/home" class="nav-item">Home</a></li>
+        <li><a href="/about" class="nav-item">About</a></li>
+        <li><a href="/surveys/active-surveys" class="nav-item">Active Surveys</a></li>
+        <% if(typeof displayName == 'string' && displayName) { %>
+            <li><a class="nav-item" style="font-weight: bold; color: #a8e890">Welcome, <%= displayName %></a></li>
+            <li><a href="/logout" class="nav-item">Logout</a></li>
+        <% } else { %>
+            <li><a href="/login" class="nav-item">Login</a></li>
+            <li><a href="/register" class="nav-item nav-item-btn">Sign Up</a></li>
+        <% } %>
+
+    </ul>   
+</nav> 

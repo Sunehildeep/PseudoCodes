@@ -1,0 +1,52 @@
+<!--Take Survey Section-->
+<main>
+  <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <div class="take-survey">
+      <h1 class="survey-name">{{ surveyName }}</h1>
+      <h3 style="font-size: 1.7rem; position: relative">Questions</h3>
+
+      <div
+        class="survey-questions"
+        style="top: 1rem"
+        *ngFor="let question of Survey; index as i"
+      >
+        <h4 id="question{{ i + 1 }}">Q {{ i + 1 }}) {{ question }}</h4>
+        <div *ngIf="this.surveyType == 'SA'; then SA; else TF"></div>
+        <ng-template #SA>
+          <input
+            type="text"
+            formControlName="answer{{ i + 1 }}"
+            placeholder="Answer {{ i + 1 }}"
+            value="{{ question }}"
+          />
+        </ng-template>
+
+        <ng-template #TF>
+          <input
+            style="right: 90px; position: relative; width: 100px"
+            class="radio"
+            type="radio"
+            name="answer{{ i + 1 }}"
+            formControlName="answer{{ i + 1 }}"
+            value="True"
+          />
+          <label style="right: 90px; position: relative" for="true">True</label>
+          <input
+            style="left: 90px; position: relative; top: -63px; width: 100px"
+            class="radio"
+            type="radio"
+            name="answer{{ i + 1 }}"
+            formControlName="answer{{ i + 1 }}"
+            value="False"
+          />
+          <label for="false" style="left: 90px; position: relative; top: -54px"
+            >False</label
+          >
+        </ng-template>
+      </div>
+
+      <button style="margin-top: 50px" class="submit" type="submit">Submit</button>
+      <a href="/active-surveys" class="cancel">Cancel</a>
+    </div>
+  </form>
+</main>
