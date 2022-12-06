@@ -51,6 +51,7 @@
               "src/content/styles.css"
             ],
             "scripts": [
+              "src/assets/script.js"
             ]
           },
           "configurations": {
