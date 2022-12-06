@@ -11,14 +11,12 @@ import { ActiveSurveysComponent } from './pages/active-surveys/active-surveys.co
 import { CreateSurveyComponent } from './pages/create-survey/create-survey.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateSurveyComponent } from './pages/update-survey/update-survey.component';
 import { TakeSurveyComponent } from './pages/take-survey/take-survey.component';
 import { MySurveysComponent } from './pages/my-surveys/my-surveys.component';
 import { ViewResponsesComponent } from './pages/view-responses/view-responses.component';
-
-
 
 @NgModule({
   declarations: [
@@ -34,7 +32,7 @@ import { ViewResponsesComponent } from './pages/view-responses/view-responses.co
     UpdateSurveyComponent,
     TakeSurveyComponent,
     MySurveysComponent,
-    ViewResponsesComponent
+    ViewResponsesComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +42,6 @@ import { ViewResponsesComponent } from './pages/view-responses/view-responses.co
     ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

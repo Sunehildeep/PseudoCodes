@@ -25,7 +25,13 @@
         <td>{{ survey.startDate }}</td>
         <td>{{ survey.closeDate }}</td>
         <td>
-          <a class="survey-button" href="take-survey" (click)="saveId(survey._id, i)">Take</a>
+          <a
+            id="take-survey"
+            class="survey-button"
+            href="take-survey"
+            (click)="saveId(survey._id, i)"
+            >Take</a
+          >
         </td>
         <td>
           <!--{{ survey._id }} -->
@@ -34,8 +40,8 @@
             href="update-survey"
             (click)="saveId(survey._id, i)"
             ><button class="survey-button">
-              <i class="fa-solid fa-pencil"></i></button
-          ></a><br><br>
+              <i class="fa-solid fa-pencil"></i></button></a
+          ><br /><br />
           <a class="survey-button" (click)="deleteSurvey(survey._id, i)"
             ><button class="survey-button">
               <i class="fa-solid fa-trash"></i></button

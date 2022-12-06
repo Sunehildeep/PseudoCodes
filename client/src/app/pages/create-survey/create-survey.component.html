@@ -4,7 +4,7 @@
     <div class="create-survey">
       <h3 class="survey-title" style="font-size: 2rem">Create a new survey</h3>
 
-        <div class="survey-name">
+      <div class="survey-name">
         <label
           class="survey-titles1"
           for="surveyName"
@@ -17,8 +17,8 @@
           type="text"
           style="top: 2rem; left: 0.5rem"
         />
-        </div>
-        <div class="survey-options">
+      </div>
+      <div class="survey-options">
         <label
           class="survey-titles"
           for="startDate"
@@ -28,7 +28,7 @@
         <input
           formControlName="startDate"
           class="surveyInput"
-          type="text"
+          type="date"
           style="top: 6rem; left: -5rem"
         />
 
@@ -41,7 +41,7 @@
         <input
           formControlName="closingDate"
           class="surveyInput"
-          type="text"
+          type="date"
           style="top: 6rem; left: -13rem"
         />
       </div>
@@ -63,7 +63,14 @@
         >
 
         <label for="shortA"
-          ><input type="radio" class="radio" name="radio" id="shortA" (click)="shortAClick()" value="ShortA"/>Short Answer</label
+          ><input
+            type="radio"
+            class="radio"
+            name="radio"
+            id="shortA"
+            (click)="shortAClick()"
+            value="ShortA"
+          />Short Answer</label
         >
       </div>
 
