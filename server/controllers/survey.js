@@ -11,6 +11,32 @@ let userModel = require("../models/user");
 let User = userModel.User;
 let survey_responses = require("../models/survey_responses");
 
+Date.prototype.toShortFormat = function () {
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const day = this.getDate();
+
+  const monthIndex = this.getMonth();
+  const monthName = monthNames[monthIndex];
+
+  const year = this.getFullYear();
+
+  return `${day}-${monthName}-${year}`;
+};
+
 //add survey content
 module.exports.displayActiveSurveysPage = (req, res, next) => {
   Survey.find((err, surveyList) => {
@@ -24,7 +50,7 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
         let startDate = new Date(surveyList[i].startDate);
         let endDate = new Date(surveyList[i].closeDate);
 
-        //Checking if the date has a year, if not add teh current year
+        //Checking if the date has a year, if not add the current year
         if (startDate.getFullYear() == 2001) {
           startDate.setFullYear(currentDate.getFullYear());
         }
@@ -56,12 +82,10 @@ module.exports.loginUser = (req, res, next) => {
     }
     // Details error
     if (!user) {
-      return res
-        .status(404)
-        .json({
-          success: false,
-          message: "The username or password is incorrect!",
-        });
+      return res.status(404).json({
+        success: false,
+        message: "The username or password is incorrect!",
+      });
     }
     req.login(user, (err) => {
       // Server Error
@@ -157,7 +181,17 @@ module.exports.displayMySurveyPage = (req, res, next) => {
       console.log(mySurveyList);
       if (mySurveyList.length == 0) {
         res.status(404).json({ message: "No surveys found." });
-      } else res.status(200).json({ data: mySurveyList });
+      } else {
+        for (let i = 0; i < mySurveyList.length; i++) {
+          mySurveyList[i].startDate = new Date(
+            mySurveyList[i].startDate
+          ).toShortFormat();
+          mySurveyList[i].closeDate = new Date(
+            mySurveyList[i].closeDate
+          ).toShortFormat();
+        }
+        res.status(200).json({ data: mySurveyList });
+      }
     }
   });
 };
@@ -268,12 +302,10 @@ module.exports.registerUser = (req, res, next) => {
       if (err.name == "UserExistsError") {
         console.log("Registration Error: User Already Exists!");
       }
-      return res
-        .status(404)
-        .json({
-          success: false,
-          message: "Registration Error: User Already Exists!",
-        });
+      return res.status(404).json({
+        success: false,
+        message: "Registration Error: User Already Exists!",
+      });
     } else {
       // if no error exists, then registration is successful
 
