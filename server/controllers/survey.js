@@ -10,13 +10,34 @@ let DB = require('../config/db');
 let userModel = require('../models/user');
 let User = userModel.User;
 let survey_responses = require("../models/survey_responses");
+
 //add survey content
 module.exports.displayActiveSurveysPage = (req, res, next) => {
   Survey.find((err, surveyList) => {
     if (err) {
       return console.error(err);
     } else {
-      res.json(surveyList);
+      //see if current date is between start and end date
+      let currentDate = new Date();
+      let activeSurveys = [];
+      for (let i = 0; i < surveyList.length; i++) {
+        let startDate = new Date(surveyList[i].startDate);
+        let endDate = new Date(surveyList[i].closeDate);
+        
+        console.log(surveyList[i]);
+        //Checking if the date has a year, if not add teh current year
+        if (startDate.getFullYear() == 2001) {
+          startDate.setFullYear(currentDate.getFullYear());
+        }
+        if (endDate.getFullYear() == 2001) {
+          endDate.setFullYear(currentDate.getFullYear());
+        }
+        console.log("Start Date: " + startDate + " End Date: " + endDate);
+        if (currentDate >= startDate && currentDate <= endDate) {
+          activeSurveys.push(surveyList[i]);
+        }
+      }
+      res.json(activeSurveys);
     }
   });
 };

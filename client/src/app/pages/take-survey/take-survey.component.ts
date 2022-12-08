@@ -63,6 +63,10 @@ export class TakeSurveyComponent implements OnInit {
       this.ngZone.run(() => this.router.navigateByUrl('/login'))
     }
     else {
+      if(SurveyID == null) {
+        alert("Please select a survey first");
+        this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'))
+      }
       this.crudService.GetSurvey(SurveyID).subscribe((res) => {
         this.Survey = res.data.questions;
         this.surveyForm.value.surveyID = res.data._id;
