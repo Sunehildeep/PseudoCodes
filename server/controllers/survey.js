@@ -11,6 +11,22 @@ let userModel = require('../models/user');
 let User = userModel.User;
 let survey_responses = require("../models/survey_responses");
 
+Date.prototype.toShortFormat = function() {
+
+  const monthNames = ["Jan", "Feb", "Mar", "Apr",
+                      "May", "Jun", "Jul", "Aug",
+                      "Sep", "Oct", "Nov", "Dec"];
+  
+  const day = this.getDate();
+  
+  const monthIndex = this.getMonth();
+  const monthName = monthNames[monthIndex];
+  
+  const year = this.getFullYear();
+  
+  return `${day}-${monthName}-${year}`;  
+}
+
 //add survey content
 module.exports.displayActiveSurveysPage = (req, res, next) => {
   Survey.find((err, surveyList) => {
@@ -23,8 +39,8 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
       for (let i = 0; i < surveyList.length; i++) {
         let startDate = new Date(surveyList[i].startDate);
         let endDate = new Date(surveyList[i].closeDate);
+
         
-        console.log(surveyList[i]);
         //Checking if the date has a year, if not add teh current year
         if (startDate.getFullYear() == 2001) {
           startDate.setFullYear(currentDate.getFullYear());
@@ -32,8 +48,11 @@ module.exports.displayActiveSurveysPage = (req, res, next) => {
         if (endDate.getFullYear() == 2001) {
           endDate.setFullYear(currentDate.getFullYear());
         }
-        console.log("Start Date: " + startDate + " End Date: " + endDate);
+
         if (currentDate >= startDate && currentDate <= endDate) {
+          surveyList[i].startDate = new Date(surveyList[i].startDate).toShortFormat();
+          surveyList[i].closeDate = new Date(surveyList[i].closeDate).toShortFormat();
+        
           activeSurveys.push(surveyList[i]);
         }
       }
