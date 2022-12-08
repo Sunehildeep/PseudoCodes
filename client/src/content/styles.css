@@ -1,17 +1,16 @@
+body {
+  background: url("/assets/images/background.jpg") no-repeat fixed center;
+  background-size: cover;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
 
-  body {
-    background: url("/assets/images/background.jpg") no-repeat fixed center;
-    background-size: cover;
-    font-family: "Montserrat", sans-serif;
-    color: white;
-  }
-
-  .project-name {
-    margin-top: 20px;
-    font-family: 'Dancing Script';
-    font-size: 2.5rem;
-    font-weight: 100;
-  }
+.project-name {
+  margin-top: 20px;
+  font-family: "Dancing Script";
+  font-size: 2.5rem;
+  font-weight: 100;
+}
 
 /* NavBar Section */
 * {
@@ -20,7 +19,6 @@
   list-style-type: none;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  color: white;
 }
 
 .logo-name {
@@ -112,3 +110,6 @@ nav.effect ul li a:hover:after {
   width: 100%;
 }
 
+input {
+  color: black;
+}

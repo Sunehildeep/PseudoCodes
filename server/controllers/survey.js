@@ -142,7 +142,7 @@ module.exports.processCreateSurveyPage = (req, res, next) => {
     questions: req.body.questions,
     surveyType: req.body.surveyType,
   });
-
+  console.log(newSurvey);
   Survey.create(newSurvey, (err, Survey) => {
     if (err) {
       console.log(err);
