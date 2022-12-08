@@ -25,11 +25,9 @@ export class ActiveSurveysComponent implements OnInit {
       });
     }
   }
-  saveId(id:any, i: any) {
-    let MId = String(id) ;
+  saveId(id: any, i: any) {
+    let MId = String(id);
     localStorage.setItem('id', MId);
-    console.log(MId)
+    console.log(MId);
   }
-
 }
-
