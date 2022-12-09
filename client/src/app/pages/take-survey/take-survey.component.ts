@@ -58,11 +58,6 @@ export class TakeSurveyComponent implements OnInit {
   }
   ngOnInit(): void
   {
-    if(sessionStorage.getItem('id_token') == null) {
-      alert("Please login first");
-      this.ngZone.run(() => this.router.navigateByUrl('/login'))
-    }
-    else {
       if(SurveyID == null) {
         alert("Please select a survey first");
         this.ngZone.run(() => this.router.navigateByUrl('/active-surveys'))
@@ -71,10 +66,7 @@ export class TakeSurveyComponent implements OnInit {
         this.Survey = res.data.questions;
         this.surveyForm.value.surveyID = res.data._id;
         this.surveyType = res.data.surveyType;
-       
+
       });
     }
-  }
-
-
 }

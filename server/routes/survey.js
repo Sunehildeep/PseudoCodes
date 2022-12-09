@@ -33,7 +33,7 @@ router.post("/register", surveyController.registerUser);
 router.post("/update-survey/:id", authorized, surveyController.processEditSurveyPage);
 
 // read survey by id
-router.get("/read-survey/:id", authorized, surveyController.displayEditSurveyPage);
+router.get("/read-survey/:id",  surveyController.displayEditSurveyPage);
 
 // read survey by author
 router.get("/read-my-surveys/:author", authorized, surveyController.displayMySurveyPage);
@@ -42,9 +42,9 @@ router.get("/read-my-surveys/:author", authorized, surveyController.displayMySur
 router.delete("/delete-survey/:id", authorized, surveyController.performDeleteSurvey);
 
 // Read My Responses
-router.get("/read-my-responses/:id", authorized, surveyController.displayMyResponsePage);
+router.get("/read-my-responses/:id", surveyController.displayMyResponsePage);
 
 // Save Responses
-router.post("/survey_responses", authorized, surveyController.processCreateResponses);
+router.post("/survey_responses", surveyController.processCreateResponses);
 
 module.exports = router;

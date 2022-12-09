@@ -35,7 +35,6 @@ export class CrudService {
 
   // Create a new response
   saveSurvey(data: any): Observable<any> {
-    this.loadToken();
     let API_URL = `${this.REST_API}/survey_responses/`;
     return this.httpClient.post(API_URL, data, { headers: this.httpHeaders })
       .pipe(
@@ -47,7 +46,7 @@ export class CrudService {
 
   // Get a survey by ID
   GetSurvey(id: any): Observable<any> {
-    this.loadToken();
+
     let API_URL = `${this.REST_API}/read-survey/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders })
       .pipe(
