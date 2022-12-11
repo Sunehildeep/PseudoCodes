@@ -12,9 +12,10 @@ let lenCounter;
   styleUrls: ['./view-stats.component.css']
 })
 export class ViewStatsComponent implements OnInit {
+  count_true: number[] = [0, 0, 0, 0, 0];
+  count_false: number[] = [0, 0, 0, 0, 0];
   answers: any = [];
-  count_true: any = [0,0,0,0,0];
-  count_false: any = [0,0,0,0,0];
+
 
   constructor(public formBuilder: FormBuilder, private router: Router, private ngZone: NgZone, private crudService: CrudService ) { }
 
@@ -29,28 +30,28 @@ export class ViewStatsComponent implements OnInit {
           if (this.answers[lenCounter].ans1 == "True") {
             this.count_true[0] += 1;
           } else{
-            if (this.answers[lenCounter].ans1 == "False") {
+
               this.count_false[0] += 1;
-            }
+
           }
           if (this.answers[lenCounter].ans2 == "True") {
             this.count_true[1] += 1;
           } else {
-            if (this.answers[lenCounter].ans1 == "False") {
+
               this.count_false[1] += 1;
-            }
+
           }
           if (this.answers[lenCounter].ans3 == "True") {
             this.count_true[2] += 1;
           } else {
-            if (this.answers[lenCounter].ans1 == "False") {
+
               this.count_false[2] += 1;
-            }
+
           }
           if (this.answers[lenCounter].ans4 == "True") {
             this.count_true[3] += 1;
           } else {
-            if (this.answers[lenCounter].ans1 == "False") {
+            {
               this.count_false[3] += 1;
             }
           }
@@ -58,9 +59,8 @@ export class ViewStatsComponent implements OnInit {
             this.count_true[4] += 1;
 
           } else {
-            if (this.answers[lenCounter].ans1 == "False") {
               this.count_false[4] += 1;
-            }
+
           }
         }
         console.log(this.count_true);

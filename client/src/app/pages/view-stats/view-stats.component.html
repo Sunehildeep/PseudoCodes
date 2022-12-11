@@ -3,7 +3,7 @@
   <table class="view-stats">
     <thead>
     <tr>
-      <th>Participant #</th>
+      <th>Participants #</th>
       <th>Answer 1</th>
       <th>Answer 2</th>
       <th>Answer 3</th>
@@ -16,11 +16,11 @@
     <tbody>
     <tr>
       <td>{{answers.length}}</td>
-      <td>{{count_true[0]}} Chose True</td>
-      <td>{{count_true[1]}} Chose True</td>
-      <td>{{count_true[2]}} Chose True</td>
-      <td>{{count_true[3]}} Chose True</td>
-      <td>{{count_true[4]}} Chose True</td>
+      <td>{{count_true[0]/(count_true[0]+count_false[0])*100}}# Chose True</td>
+      <td>{{count_true[1]/(count_true[1]+count_false[1])*100}}# Chose True</td>
+      <td>{{count_true[2]/(count_true[2]+count_false[2])*100}}# Chose True</td>
+      <td>{{count_true[3]/(count_true[3]+count_false[3])*100}}# Chose True</td>
+      <td>{{count_true[4]/(count_true[4]+count_false[4])*100}}# Chose True</td>
     </tr>
     </tbody>
   </table>
