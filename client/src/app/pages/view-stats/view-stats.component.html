@@ -1,6 +1,10 @@
 <!-- View Stats Section -->
 <main>
+<div>    <a class="view-button"  >Export to Excel</a></div>
+
+
   <table class="view-stats">
+
     <thead>
     <tr>
       <th>Participants #</th>
@@ -13,7 +17,7 @@
     </tr>
     </thead>
 
-    <tbody>
+    <tbody id="excel">
     <tr>
       <td>{{answers.length}}</td>
       <td>{{count_true[0]/(count_true[0]+count_false[0])*100}}% Chose True</td>
