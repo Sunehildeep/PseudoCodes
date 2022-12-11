@@ -23,9 +23,22 @@
       <td>
         <a class="view-button" href="/view-responses" (click)="saveId(survey._id, i)">View</a>
       </td>
-      <td>
-        <a class="view-button" href="/view-stats" (click)="saveId(survey._id, i)">View</a>
-      </td>
+
+
+      <div *ngIf="survey.surveyType == 'TF'; then tf else blank"></div>
+
+      <ng-template #tf>
+        <td>
+          <a class="view-button" href="/view-stats" (click)="saveId(survey._id, i)">View</a>
+        </td>
+      </ng-template>
+
+      <ng-template #blank>
+        <td>
+
+        </td>
+      </ng-template>
+
 
     </tr>
     </tbody>
