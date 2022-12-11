@@ -8,6 +8,7 @@
       <th>Start Date</th>
       <th>Closing Date</th>
       <th>View Responses</th>
+      <th>View Stats</th>
 
     </tr>
     </thead>
@@ -21,6 +22,9 @@
 
       <td>
         <a class="view-button" href="/view-responses" (click)="saveId(survey._id, i)">View</a>
+      </td>
+      <td>
+        <a class="view-button" href="/view-stats" (click)="saveId(survey._id, i)">View</a>
       </td>
 
     </tr>

@@ -17,6 +17,7 @@ import { UpdateSurveyComponent } from './pages/update-survey/update-survey.compo
 import { TakeSurveyComponent } from './pages/take-survey/take-survey.component';
 import { MySurveysComponent } from './pages/my-surveys/my-surveys.component';
 import { ViewResponsesComponent } from './pages/view-responses/view-responses.component';
+import { ViewStatsComponent } from './pages/view-stats/view-stats.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ViewResponsesComponent } from './pages/view-responses/view-responses.co
     TakeSurveyComponent,
     MySurveysComponent,
     ViewResponsesComponent,
+    ViewStatsComponent,
   ],
   imports: [
     BrowserModule,

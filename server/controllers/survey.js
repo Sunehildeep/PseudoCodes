@@ -268,6 +268,30 @@ module.exports.processCreateResponses = (req, res, next) => {
   });
 };
 
+
+
+
+module.exports.displayMyStatPage = (req, res, next) => {
+  let id = req.params.id;
+
+  console.log(id + "Hello");
+  survey_responses.find({ surveyID: id }, (err, myResponseList) => {
+    if (err) {
+      console.log(err);
+      res.status(404).json({ message: err });
+    } else {
+      // Check if result is empty
+      if (myResponseList.length == 0) {
+        res.status(404).json({ message: "No stats found." });
+      } else {
+        console.log(myResponseList);
+        res.status(200).json({ data: myResponseList });
+      }
+    }
+  });
+};
+
+
 module.exports.displayMyResponsePage = (req, res, next) => {
   let id = req.params.id;
 

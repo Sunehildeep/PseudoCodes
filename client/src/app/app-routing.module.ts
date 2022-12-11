@@ -10,6 +10,7 @@ import {MySurveysComponent} from "./pages/my-surveys/my-surveys.component";
 import {ViewResponsesComponent} from "./pages/view-responses/view-responses.component";
 import {UpdateSurveyComponent} from "./pages/update-survey/update-survey.component";
 import { TakeSurveyComponent } from "./pages/take-survey/take-survey.component";
+import {ViewStatsComponent} from "./pages/view-stats/view-stats.component";
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'my-surveys', component: MySurveysComponent},
   { path: 'view-responses', component: ViewResponsesComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'take-survey', component: TakeSurveyComponent }
+  { path: 'take-survey', component: TakeSurveyComponent },
+  { path: 'view-stats', component: ViewStatsComponent}
 ];
 
 @NgModule({

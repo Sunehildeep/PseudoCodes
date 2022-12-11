@@ -44,6 +44,9 @@ router.delete("/delete-survey/:id", authorized, surveyController.performDeleteSu
 // Read My Responses
 router.get("/read-my-responses/:id", surveyController.displayMyResponsePage);
 
+// Read My Stats
+router.get("/read-my-stats/:id", surveyController.displayMyStatPage);
+
 // Save Responses
 router.post("/survey_responses", surveyController.processCreateResponses);
 
