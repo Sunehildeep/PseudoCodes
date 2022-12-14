@@ -6,12 +6,12 @@
 
   <div class="containerReg">
     <div class="register">
-      <h3
-        class="project-name"
+      <h3 class="project-name">Surveylance</h3>
+      <form
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()"
+        style="margin-top: 50px"
       >
-        Surveylance
-      </h3>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <label class="regLabel">USERNAME:</label>
         <input
           class="regInput"
