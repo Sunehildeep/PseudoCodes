@@ -10,7 +10,7 @@ import { Survey } from './surveys';
 import { User } from './users';
 import { FormGroup } from '@angular/forms';
 import { survey_responses } from "./survey_responses";
-import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -27,10 +27,9 @@ export class CrudService {
     'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
     });
 
-  constructor(private httpClient: HttpClient,
-    private router: Router) {}
+  constructor(private httpClient: HttpClient) {}
     
-  REST_API: string = this.router.url + "/api";
+  REST_API: string = location.origin + "/api";
 
   // Get all the surveys
   GetSurveys() {
