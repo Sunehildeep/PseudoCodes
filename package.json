@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./server.js",
-    "heroku-postbuild": "cd client && npm install && ng build"
+    "start": "cd ./client && npm run build && cd ../ && node ./server.js",
+    "heroku-postbuild": "cd client && npm install"
   },
   "engines": {
     "node": "^16.17.1",
