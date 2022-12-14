@@ -10,14 +10,16 @@ import { Survey } from './surveys';
 import { User } from './users';
 import { FormGroup } from '@angular/forms';
 import { survey_responses } from "./survey_responses";
-
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 
 export class CrudService {
   // Node/Express API
-  REST_API: string = 'http://localhost:3000/api';
+  // Get base url 
+  
+  //REST_API: string = 'http://localhost:3000/api';
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -25,7 +27,10 @@ export class CrudService {
     'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
     });
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient,
+    private router: Router) {}
+    
+  REST_API: string = this.router.url + "/api";
 
   // Get all the surveys
   GetSurveys() {
