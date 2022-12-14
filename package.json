@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./server.js & cd ./client & ng serve"
+    "start": "cd ./client && ng build && cd ../ && node ./server.js"
   },
   "engines": {
     "node": "^16.17.1",

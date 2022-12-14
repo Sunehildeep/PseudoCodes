@@ -21,7 +21,6 @@
     "@angular/router": "^14.2.0",
     "faker": "^5.5.3",
     "is-fullwidth-code-point": "^4.0.0",
-    "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.28",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
