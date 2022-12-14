@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cd ./client && npm run build && cd ../ && node ./server.js",
-    "heroku-postbuild": "cd client && npm install"
+    "heroku-postbuild": "cd client && npm install && cd ../ && npm start"
   },
   "engines": {
     "node": "^16.17.1",
