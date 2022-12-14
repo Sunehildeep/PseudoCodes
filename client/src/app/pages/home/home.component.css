@@ -52,3 +52,8 @@
       transform: translateY(0px);
     }
   }
+  @media screen and (max-width: 992px) {
+    .home-container {
+      flex-direction: column;
+    }
+  }
