@@ -2,14 +2,15 @@
 .take-survey {
   text-align: center;
   position: absolute;
-  top: 45rem;
+  top: 48rem;
   right: 50%;
   transform: translate(50%, -50%);
-  width: 30%;
   height: 120%;
   background: #c7c7c7;
   border-radius: 40px;
+  width: 500px;
   margin-bottom: 10rem;
+  padding: 1rem;
 }
 
 .survey-title {
