@@ -19,7 +19,7 @@ export class CrudService {
   // Node/Express API
   // Get base url 
   
-  //REST_API: string = 'http://localhost:3000/api';
+
 
   httpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -29,7 +29,9 @@ export class CrudService {
 
   constructor(private httpClient: HttpClient) {}
     
-  REST_API: string = location.origin + "/api";
+  //REST_API: string = location.hostname + ":3000/api";
+  
+  REST_API: string = 'http://localhost:3000/api';
 
   // Get all the surveys
   GetSurveys() {
